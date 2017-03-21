@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cong.chenchong.test.TestLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_navigation_bar" />
+
+    <Button
+        android:id="@+id/iv_test"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="50dp"
+        android:background="@drawable/common_solid_btn_bg"
+        android:text="注册"
+        android:textColor="@drawable/common_hollow_txt_color" />
+
+</com.cong.chenchong.test.TestLinearLayout>

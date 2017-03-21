@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cong.chenchong"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="22" />
+
+    <!-- 访问网络	android.permission.INTERNET，访问网络连接，可能产生GPRS流量 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 拍照权限	android.permission.CAMERA，允许访问摄像头进行拍照 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 使用振动	android.permission.VIBRATE，允许振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 获取WiFi状态	android.permission.ACCESS_WIFI_STATE，获取当前WiFi接入的状态以及WLAN热点的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取网络状态	android.permission.ACCESS_NETWORK_STATE，获取网络信息状态，如当前的网络连接是否有效 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 唤醒锁定	android.permission.WAKE_LOCK，允许程序在手机屏幕关闭后后台进程仍然运行 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 显示系统窗口	android.permission.SYSTEM_ALERT_WINDOW，显示系统窗口 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 写入外部存储	android.permission.WRITE_EXTERNAL_STORAGE，允许程序写入外部存储，如SD卡上写文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 读取电话状态	android.permission.READ_PHONE_STATE，访问电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 获取当前或最近运行的应用	android.permission.GET_TASKS，允许程序获取当前或最近运行的应用 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.TestActivity" />
+        <activity android:name=".activity.ScrollViewActivity" />
+        <activity android:name=".activity.ReboundScrollViewActivity" />
+        <activity android:name=".activity.ElasticScrollViewActivity" />
+        <activity android:name=".activity.ElasticRefreshActivity" />
+        <activity android:name=".activity.RefreshActivity" />
+        <activity android:name=".activity.SwipeRefreshActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.SettingIOSStyleActivity" />
+        <activity android:name=".activity.SettingQQStyleActivity" />
+        <activity android:name=".activity.SettingCommonLayoutActivity" />
+        <activity android:name=".activity.ExplorerActivity" />
+        <activity android:name=".activity.ToolActivity" />
+        <activity android:name=".activity.CaptureActivity" />
+        <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.RippleActivity" />
+        <activity android:name=".activity.WiFiActivity" />
+        <activity android:name=".activity.TreeViewerActivity" />
+        <activity android:name=".activity.ListViewActivity" />
+        <activity android:name=".activity.WaterDropActivity" />
+        <activity android:name=".activity.RobotActivity" />
+        <activity android:name=".activity.TagFlowActivity" />
+        <activity android:name=".activity.VerticalTabActivity" />
+        <activity android:name=".activity.BrandListActivity" />
+        <activity android:name=".activity.AsyncTaskActivity" />
+        <activity android:name=".activity.PhotoBlurActivity" />
+        <activity android:name=".ui.UiActivity" />
+        <activity android:name=".ui.CommonWidgetActivity" />
+        <activity android:name=".ui.CustomLoadingActivity" />
+        <activity android:name=".activity.FloatWindowActivity" />
+
+        <service android:name=".wifi.manager.FTPServerService" />
+        <service android:name=".floatwindow.FloatWindowService" />
+        <service
+            android:name=".activity.NetworkConnectService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.cong.chenchong.NetworkConnectService" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activity.TestLiveTemplateActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
+    </application>
+
+</manifest>

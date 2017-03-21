@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_navigation_bar" />
+
+    <Button
+        android:id="@+id/btn_ui_0"
+        style="@style/hollow_btn"
+        android:layout_margin="15dp"
+        android:text="按钮1" />
+
+    <Button
+        android:id="@+id/btn_ui_1"
+        style="@style/solid_btn"
+        android:layout_margin="15dp"
+        android:text="按钮2" />
+
+    <Button
+        android:id="@+id/btn_ui_2"
+        style="@style/hollow_btn"
+        android:layout_margin="15dp"
+        android:enabled="false"
+        android:text="按钮3" />
+
+    <com.cong.chenchong.ui.CommonBtn
+        android:id="@+id/btn_ui_3"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/common_hollow_btn_bg"
+        android:gravity="center"
+        android:text="登录"
+        android:textColor="@drawable/common_hollow_txt_color" />
+
+    <com.cong.chenchong.ui.CommonBtn
+        android:id="@+id/btn_ui_4"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/common_hollow_btn_bg"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="注册"
+        android:textColor="@drawable/common_hollow_txt_color" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/img_num_bg"
+        android:gravity="center"
+        android:text="8"
+        android:textColor="#fff"
+        android:textSize="28sp" />
+
+</LinearLayout>

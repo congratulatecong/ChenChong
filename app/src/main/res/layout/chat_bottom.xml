@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="#F5F5F5"
+        android:baselineAligned="false"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" >
+
+            <ImageView
+                android:id="@+id/option_more"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:scaleType="center"
+                android:src="@drawable/chat_bottom_option_more"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/option_open_public_number"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_above="@id/option_more"
+                android:layout_alignWithParentIfMissing="true"
+                android:scaleType="center"
+                android:src="@drawable/singlechat_pubnum_to_up"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/option_goto_emoji"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:layout_above="@id/option_open_public_number"
+                android:scaleType="center"
+                android:src="@drawable/chat_bottom_option_emoji"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <include
+                android:id="@+id/template_editor"
+                android:layout_width="0dip"
+                android:layout_height="83dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                layout="@layout/template_editor"
+                android:minHeight="75dp"
+                android:visibility="visible" />
+
+            <include
+                android:id="@+id/et_input_qualcomm"
+                android:layout_width="0dip"
+                android:layout_height="83dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                layout="@layout/template_editor_qualcomm"
+                android:minHeight="40dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_right_top"
+                style="@style/chat_bottom_send_button"
+                android:layout_width="61dp"
+                android:layout_height="38dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:enabled="false"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/ll_double_card_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <Button
+                    android:id="@+id/bt_double_card_leftsend"
+                    style="@style/chat_bottom_send_button"
+                    android:layout_width="61dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:enabled="false" />
+
+                <Button
+                    android:id="@+id/bt_double_card_rightsend"
+                    style="@style/chat_bottom_send_button"
+                    android:layout_width="61dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginTop="6dp"
+                    android:enabled="false" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/emotion_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:background="#F5F5F5"
+        android:paddingBottom="5dp"
+        android:visibility="gone" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp" />
+
+        <ViewFlipper
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="12dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_attach_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <GridView
+            android:id="@+id/attach_grid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fadingEdge="none"
+            android:gravity="center"
+            android:listSelector="@color/transparent"
+            android:numColumns="4"
+            android:paddingBottom="10dp"
+            android:scrollbars="vertical"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</LinearLayout>

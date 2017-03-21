@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_setting_tips"
+    android:minHeight="55dp"
+    android:padding="5dp" >
+    
+    <ImageView 
+        android:id="@+id/img_notice"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon_info"/>
+
+    <ImageView
+        android:id="@+id/img_tips_close"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="center"
+        android:layout_centerVertical="true"
+        android:src="@drawable/btn_tips_close" />
+
+    <TextView
+        android:id="@+id/txt_tips_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/img_tips_close"
+        android:layout_toRightOf="@id/img_notice"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_centerVertical="true"
+        android:text="检测到网络连接异常，请确认。去设置"
+        android:textColor="#509bc5"
+        android:textSize="13sp" />
+
+</RelativeLayout>

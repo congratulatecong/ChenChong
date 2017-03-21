@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffffff</color>
+    <color name="half_white">#80ffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="half_black">#80000000</color>
+    <color name="gray">#cccccc</color>
+    <color name="main_bg">#fff0f0f0</color>
+    <color name="exit_tips_bg">#80f0f0f0</color>
+    <color name="navigation_bg">#ffcc0000</color>
+    <color name="back_pressed_bg">#80C0C0C0</color>
+    <color name="listitem_pressed_bg">#60C0C0C0</color>
+    <color name="listview_divider">#80C0C0C0</color>
+    <color name="water_drop_color">#ffff0000</color>
+    <color name="separator">#ffd8d8d8</color>
+    <color name="background">#fff0f0f0</color>
+    <color name="bottom_action_item_n">#f8f8f8</color>
+    <color name="bottom_action_item_p">#eeeeee</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <color name="half_transparent">#80000000</color>
+    <!-- Setting START -->
+    <color name="setting_view_item_bg_pressed2">#FF4BAAFF</color>
+    <!-- Setting END -->
+    <!-- Capture START -->
+    <color name="viewfinder_mask">#80000000</color>
+    <color name="flicker_points">#99ffffff</color>
+    <color name="result_view">#b0000000</color>
+    <!-- Capture END -->
+    <!-- Dialog start -->
+    <color name="text_color">#FFFFFF</color>
+    <color name="divider_color">#11000000</color>
+    <color name="msg_color">#FFFFFFFF</color>
+    <color name="dialog_bg">#ffe74c3c</color>
+    <color name="btn_press_color">#FFa5281b</color>
+    <color name="btn_unpress_color">#FFc0392b</color>
+    <!-- Dialog end -->
+    <!-- RippleView start -->
+    <color name="ripple_color">#FFFFFF</color>
+    <!-- RippleView end -->
+    
+    <color name="remote_connect_text">#FFe78018</color>
+    <color name="remote_disconnect_text">#FF901821</color>
+    
+    <!-- 通用圆角按钮 -->
+    <color name="common_solid_btn_bg_n">#ff7107</color>
+    <color name="common_solid_btn_bg_p">#e15800</color>
+    <color name="common_hollow_btn_bg_n">@color/transparent</color>
+    <color name="common_hollow_btn_bg_p">#33ff7107</color>
+    <color name="common_btn_bg_disabled">#dddddd</color>
+    <color name="common_solid_btn_txt">@color/white</color>
+    
+</resources>
