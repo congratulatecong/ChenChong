@@ -9,7 +9,8 @@ public class MainTest {
 //        System.out.println(formatNum("34234"));
 //        System.out.println(Math.pow(10,-6));
 //        System.out.println(new SimpleDateFormat("M月dd日HH:mm").format(1469614064));
-        deleteTempVideoFile();
+//        deleteTempVideoFile();
+        System.out.println(DateTimeUtil.formatTime("1495700311"));
     }
 
     public static void deleteTempVideoFile() {
