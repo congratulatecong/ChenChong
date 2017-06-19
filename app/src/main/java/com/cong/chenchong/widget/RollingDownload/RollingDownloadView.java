@@ -1,6 +1,7 @@
 package com.cong.chenchong.widget.RollingDownload;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,6 +16,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 
+import com.cong.chenchong.R;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.ValueAnimator;
 
@@ -80,36 +82,28 @@ public class RollingDownloadView extends View {
 
     public RollingDownloadView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initAttrs(context, attrs);
         initPaint();
         initAnimation();
         backRectF = new RectF();
     }
 
-    static class ArgusParams {
-        int statusSize;
-        int statusColor;
-        int loadPointColor;
-        int bgColor;
-        int progressColor;
-        int collectSpeed;
-        int collectRotateSpeed;
-        int expandSpeed;
-        int rightLoadingSpeed;
-        int leftLoadingSpeed;
-    }
-
-    public void setArgus(ArgusParams params) {
-        statusSize = params.statusSize;
-        statusColor = params.statusColor;
-        loadPointColor = params.loadPointColor;
-        bgColor = params.bgColor;
-        progressColor = params.progressColor;
-        collectSpeed = params.collectSpeed;
-        collectRotateSpeed = params.collectRotateSpeed;
-        expandSpeed = params.expandSpeed;
-        rightLoadingSpeed = params.rightLoadingSpeed;
-        leftLoadingSpeed = params.leftLoadingSpeed;
-        initPaint();
+    private void initAttrs(Context context, AttributeSet attrs) {
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RollingDownloadView);
+        try {
+            statusSize = (int) array.getDimension(R.styleable.RollingDownloadView_status_text_size, statusSize);
+            statusColor = array.getColor(R.styleable.RollingDownloadView_status_text_color, statusColor);
+            loadPointColor = array.getColor(R.styleable.RollingDownloadView_load_point_color, loadPointColor);
+            bgColor = array.getColor(R.styleable.RollingDownloadView_bg_color, bgColor);
+            progressColor = array.getColor(R.styleable.RollingDownloadView_progress_color, progressColor);
+            collectSpeed = array.getInt(R.styleable.RollingDownloadView_collect_speed, collectSpeed);
+            collectRotateSpeed = array.getInt(R.styleable.RollingDownloadView_collect_rotate_speed, collectRotateSpeed);
+            expandSpeed = array.getInt(R.styleable.RollingDownloadView_expand_speed, expandSpeed);
+            rightLoadingSpeed = array.getInt(R.styleable.RollingDownloadView_right_loading_speed, rightLoadingSpeed);
+            leftLoadingSpeed = array.getInt(R.styleable.RollingDownloadView_left_loading_speed, leftLoadingSpeed);
+        } finally {
+            array.recycle();
+        }
     }
 
     private void initPaint() {
@@ -566,11 +560,8 @@ public class RollingDownloadView extends View {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        if (status != Status.Normal) {
-            //如果不是normal状态下直接不让有ontouch事件
-            return true;
-        }
-        return super.dispatchTouchEvent(event);
+        //如果不是normal状态下直接不让有ontouch事件
+        return status != Status.Normal || super.dispatchTouchEvent(event);
     }
 
     @Override
