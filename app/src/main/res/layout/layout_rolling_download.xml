@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="56dp"
+              android:background="#fff"
+              android:gravity="center_vertical"
+              android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <com.cong.chenchong.widget.RollingDownload.RollingDownloadView
+        android:id="@+id/view_rolling_download"
+        android:layout_width="280dp"
+        android:layout_height="45dp"/>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_control"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -77,6 +77,7 @@
         <activity android:name=".ui.CommonWidgetActivity" />
         <activity android:name=".ui.CustomLoadingActivity" />
         <activity android:name=".activity.FloatWindowActivity" />
+        <activity android:name=".activity.RollingDownloadActivity" />
 
         <service android:name=".wifi.manager.FTPServerService" />
         <service android:name=".floatwindow.FloatWindowService" />
