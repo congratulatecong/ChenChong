@@ -69,4 +69,17 @@
         <attr name="left_loading_speed" format="integer"/>
     </declare-styleable>
 
+    <declare-styleable name="RollingSquareView">
+        <attr name="half_rect_width" format="dimension" />
+        <attr name="rect_divider_width" format="dimension" />
+        <attr name="start_empty_position" format="integer" />
+        <attr name="is_clockwise" format="boolean" />
+        <attr name="line_count" format="integer"  />
+        <attr name="roll_speed" format="integer"  />
+        <attr name="square_color" format="color"  />
+        <attr name="roll_round_corner" format="float"  />
+        <attr name="fix_round_corner" format="float"  />
+        <attr name="roll_interpolator" format="reference"  />
+    </declare-styleable>
+
 </resources>

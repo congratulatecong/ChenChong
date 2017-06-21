@@ -10,7 +10,6 @@
         android:id="@+id/iv_blur"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/emoji_entry_p"
         android:scaleType="center" />
 
 </LinearLayout>
