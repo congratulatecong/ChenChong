@@ -42,7 +42,7 @@ public class BlurUtil {
     }
 
     public static Bitmap blur(Context context, Drawable drawable) {
-        return blur(context, drawableToBitamp(drawable));
+        return blur(context, drawableToBitmap(drawable));
     }
 
     public static Bitmap blur(Context context, int id) {
@@ -52,18 +52,16 @@ public class BlurUtil {
     private static Bitmap big(Bitmap bitmap) {
         Matrix matrix = new Matrix();
         matrix.postScale(2f, 2f); //长和宽放大缩小的比例
-        Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        return resizeBmp;
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
     private static Bitmap small(Bitmap bitmap) {
         Matrix matrix = new Matrix();
         matrix.postScale(0.5f, 0.5f); //长和宽放大缩小的比例
-        Bitmap resizeBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        return resizeBmp;
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static Bitmap drawableToBitamp(Drawable drawable) {
+    public static Bitmap drawableToBitmap(Drawable drawable) {
         Bitmap bitmap;
         int w = drawable.getIntrinsicWidth();
         int h = drawable.getIntrinsicHeight();

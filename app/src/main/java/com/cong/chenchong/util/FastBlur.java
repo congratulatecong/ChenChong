@@ -5,15 +5,11 @@ import android.util.Log;
 
 public class FastBlur {
 
-    private static final int RADIUS = 50;
+    private static final int RADIUS = 20;
 
     public static Bitmap blur(Bitmap originalBitmap) {
 
         long start = System.currentTimeMillis();
-
-        if (RADIUS < 1) {
-            return (null);
-        }
 
         Bitmap bitmap = originalBitmap.copy(originalBitmap.getConfig(), true);
 

@@ -24,13 +24,13 @@ public class PhotoBlurActivity extends BaseActivity implements OnClickListener {
         ImageView ivBlur = (ImageView) findViewById(R.id.iv_blur);
         try {
 
-            ivBlur.setImageBitmap(FastBlur.blur(BlurUtil.drawableToBitamp(ContextCompat.getDrawable(this, R.drawable.image_open_360))));
-//        ivBlur.setImageBitmap(BlurUtil.blur(this, getResources().getDrawable(R.drawable.image_open_360)));
-//        ivBlur.setImageResource(R.drawable.image_open_360);
+            ivBlur.setImageBitmap(FastBlur.blur(BlurUtil.drawableToBitmap(ContextCompat.getDrawable(this, R.drawable.image_girl))));
+//        ivBlur.setImageBitmap(BlurUtil.blur(this, getResources().getDrawable(R.drawable.image_girl)));
+//        ivBlur.setImageResource(R.drawable.image_girl);
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "cc Exception", Toast.LENGTH_SHORT).show();
-            ivBlur.setImageResource(R.drawable.image_open_360);
+            ivBlur.setImageResource(R.drawable.image_girl);
         }
         ivBlur.setOnClickListener(this);
     }
