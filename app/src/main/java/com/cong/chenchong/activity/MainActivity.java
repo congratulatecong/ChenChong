@@ -173,6 +173,8 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, O
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("仿360手助旋转下载");
         mAndroidKernelList.add(androidKernel);
+        androidKernel = new AndroidKernel("创意评价");
+        mAndroidKernelList.add(androidKernel);
     }
 
     private void initView() {
@@ -325,6 +327,11 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, O
                 break;
             case 16:
                 intent.setClass(this, RollingDownloadActivity.class);
+                intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
+                startActivity(intent);
+                break;
+            case 17:
+                intent.setClass(this, SmileAppraiseActivity.class);
                 intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
                 startActivity(intent);
                 break;
