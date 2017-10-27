@@ -1,5 +1,8 @@
 package com.example;
 
+import com.example.test.AbsClazz;
+import com.example.test.SubClazz;
+
 import java.io.File;
 
 @SuppressWarnings("unchecked")
@@ -10,7 +13,26 @@ public class MainTest {
 //        System.out.println(Math.pow(10,-6));
 //        System.out.println(new SimpleDateFormat("M月dd日HH:mm").format(1469614064));
 //        deleteTempVideoFile();
-        System.out.println(DateTimeUtil.formatTime("1495700311"));
+//        System.out.println(DateTimeUtil.formatTime("1495700311"));
+
+//        breakContinue();
+
+        SubClazz subClazz = new SubClazz();
+        subClazz.doSomethingInStaticAbs();
+        AbsClazz.doOther();
+        System.out.println(AbsClazz.Holder.so);
+
+    }
+
+    private static void breakContinue() {
+        for (int i = 0; i < 5; i++) {
+            if(i == 3){
+//                continue;
+                break;
+            }
+            System.out.println(i+"/");
+        }
+        System.out.println("end");
     }
 
     public static void deleteTempVideoFile() {
