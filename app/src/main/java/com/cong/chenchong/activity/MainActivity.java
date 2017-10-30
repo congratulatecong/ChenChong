@@ -15,10 +15,8 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -28,19 +26,20 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.adapter.MainAdapter;
 import com.cong.chenchong.bean.AndroidKernel;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.ui.UiActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author chenchong-ms
- */
-public class MainActivity extends BaseActivity implements OnItemClickListener, OnGestureListener {
+public class MainActivity extends SlidingActivity implements OnItemClickListener {
+
+    public static final int EXIT_INTERVAL = 2000;
 
     private ListView mListView;
 
@@ -347,36 +346,24 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, O
             return super.dispatchKeyEvent(event);
         }
 
-        if ((System.currentTimeMillis() - clickTime) > 2000) {
-            // Toast.makeText(this, R.string.exit_app_tip,
-            // Toast.LENGTH_SHORT).show();
+        if ((System.currentTimeMillis() - clickTime) > EXIT_INTERVAL) {
+            Toast.makeText(this, R.string.exit_app_tip, Toast.LENGTH_SHORT).show();
             mLayoutExitTips.setVisibility(View.VISIBLE);
             mTxtExitTips.setText(R.string.exit_app_tip);
-            // 注意：view.postDelayed(Runnable action, long
-            // delayMillis)和handler.postDelayed(Runnable action, long
-            // delayMillis)
-            mLayoutExitTips.postDelayed(new Runnable() {
-
+            mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     mLayoutExitTips.setVisibility(View.GONE);
                 }
-            }, 2000);
+            }, EXIT_INTERVAL);
             clickTime = System.currentTimeMillis();
             return true;
         }
         return super.dispatchKeyEvent(event);
     }
 
-    /*
-     * (non-Javadoc)首页关闭滑动返回手势
-     * @see com.cong.chenchong.activity.BaseActivity#onFling(android.view.
-     * MotionEvent, android.view.MotionEvent, float, float)
-     */
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        Log.v("cc", "onFling");
+    protected boolean isSupportSwipeBack() {
         return false;
     }
-
 }

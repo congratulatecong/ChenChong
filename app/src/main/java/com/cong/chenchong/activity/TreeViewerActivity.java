@@ -1,16 +1,6 @@
 
 package com.cong.chenchong.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.cong.chenchong.R;
-import com.cong.chenchong.adapter.SimpleTreeListViewAdapter;
-import com.cong.chenchong.adapter.TreeListViewAdapter.OnTreeNodeClickListener;
-import com.cong.chenchong.bean.FileBean;
-import com.cong.chenchong.bean.OrgBean;
-import com.cong.chenchong.util.Node;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -24,7 +14,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TreeViewerActivity extends BaseActivity {
+import com.cong.chenchong.R;
+import com.cong.chenchong.adapter.SimpleTreeListViewAdapter;
+import com.cong.chenchong.adapter.TreeListViewAdapter.OnTreeNodeClickListener;
+import com.cong.chenchong.bean.FileBean;
+import com.cong.chenchong.bean.OrgBean;
+import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.Node;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TreeViewerActivity extends SlidingActivity {
     private ListView mListViewTreeViewer;
 
     private SimpleTreeListViewAdapter<OrgBean> mAdapter;

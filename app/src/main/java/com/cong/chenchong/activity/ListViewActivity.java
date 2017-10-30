@@ -1,15 +1,16 @@
 
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class ListViewActivity extends BaseActivity implements OnClickListener {
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class ListViewActivity extends SlidingActivity implements OnClickListener {
 
     private TextView mTxtTreeViewer;
 

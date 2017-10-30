@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,8 +14,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 
-public class TestLiveTemplateActivity extends AppCompatActivity {
+public class TestLiveTemplateActivity extends SlidingActivity {
 
     private static final int liveInt = 331;
 

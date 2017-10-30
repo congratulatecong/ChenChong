@@ -1,16 +1,5 @@
 package com.cong.chenchong.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.cong.chenchong.R;
-import com.cong.chenchong.bean.Brand;
-import com.cong.chenchong.bean.BrandCategory;
-import com.cong.chenchong.util.ContextUtils;
-import com.cong.chenchong.widget.LoadingDialog;
-import com.cong.chenchong.widget.SegmentBar;
-import com.cong.chenchong.widget.SegmentBar.OnTabSelectionChanged;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,42 +12,54 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class BrandListActivity extends BaseActivity {
+import com.cong.chenchong.R;
+import com.cong.chenchong.bean.Brand;
+import com.cong.chenchong.bean.BrandCategory;
+import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ContextUtils;
+import com.cong.chenchong.widget.LoadingDialog;
+import com.cong.chenchong.widget.SegmentBar;
+import com.cong.chenchong.widget.SegmentBar.OnTabSelectionChanged;
 
-	private int mCurrentPage = 0;
-	private String mBrandCode = "";
-	private SegmentBar mSegmentBar;
-	private List<BrandCategory> mBrandCategoryList;
+import java.util.ArrayList;
+import java.util.List;
+
+public class BrandListActivity extends SlidingActivity {
+
+    private int mCurrentPage = 0;
+    private String mBrandCode = "";
+    private SegmentBar mSegmentBar;
+    private List<BrandCategory> mBrandCategoryList;
 
     private GridView mGridView;
-	private BrandAdapter mBrandAdapter;
-	private List<Brand> mBrandList;
+    private BrandAdapter mBrandAdapter;
+    private List<Brand> mBrandList;
 
     private LoadingDialog mProgressDialog;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_brand_list);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_brand_list);
 
         TextView txtTitle = (TextView) findViewById(R.id.txt_title);
         txtTitle.setText(getIntent().getStringExtra("title"));
 
-		mBrandCategoryList = new ArrayList<BrandCategory>();
-		mSegmentBar = (SegmentBar) findViewById(R.id.segment_bar);
-		mSegmentBar.setTabSelectionListener(mOnTabSelectionChanged);
+        mBrandCategoryList = new ArrayList<BrandCategory>();
+        mSegmentBar = (SegmentBar) findViewById(R.id.segment_bar);
+        mSegmentBar.setTabSelectionListener(mOnTabSelectionChanged);
 
-		mBrandList = new ArrayList<Brand>();
-		mBrandAdapter = new BrandAdapter();
+        mBrandList = new ArrayList<Brand>();
+        mBrandAdapter = new BrandAdapter();
         mGridView = (GridView) findViewById(R.id.grid_view);
-		mGridView.setOnItemClickListener(mOnItemClickListener);
-		mGridView.setAdapter(mBrandAdapter);
+        mGridView.setOnItemClickListener(mOnItemClickListener);
+        mGridView.setAdapter(mBrandAdapter);
 
         mProgressDialog = new LoadingDialog(this);
 
         // getBrandCategory();
         initDatas();
-	}
+    }
 
     private void initDatas() {
         mProgressDialog.show();
@@ -78,10 +79,10 @@ public class BrandListActivity extends BaseActivity {
     }
 
     @Override
-	protected void onDestroy() {
-		mProgressDialog.dismiss();
-		super.onDestroy();
-	}
+    protected void onDestroy() {
+        mProgressDialog.dismiss();
+        super.onDestroy();
+    }
 
     // private void getBrandCategory() {
     // mProgressDialog.show();
@@ -111,23 +112,23 @@ public class BrandListActivity extends BaseActivity {
     //
     // };
 
-	private void initBrandCategoryLayout(LinearLayout layoutCategory, BrandCategory brandCategory) {
-		View view = getLayoutInflater().inflate(R.layout.layout_brand_category_item, layoutCategory, false);
-		TextView txtName = (TextView) view.findViewById(R.id.txt_name);
-		txtName.setText(brandCategory.getName());
-		layoutCategory.addView(view, view.getLayoutParams());
-	}
+    private void initBrandCategoryLayout(LinearLayout layoutCategory, BrandCategory brandCategory) {
+        View view = getLayoutInflater().inflate(R.layout.layout_brand_category_item, layoutCategory, false);
+        TextView txtName = (TextView) view.findViewById(R.id.txt_name);
+        txtName.setText(brandCategory.getName());
+        layoutCategory.addView(view, view.getLayoutParams());
+    }
 
-	private OnTabSelectionChanged mOnTabSelectionChanged = new OnTabSelectionChanged() {
+    private OnTabSelectionChanged mOnTabSelectionChanged = new OnTabSelectionChanged() {
 
-		@Override
-		public void onTabSelectionChanged(int index) {
-			mBrandCode = mBrandCategoryList.get(index).getCode();
+        @Override
+        public void onTabSelectionChanged(int index) {
+            mBrandCode = mBrandCategoryList.get(index).getCode();
             // getBrandsByCategory(1);
             initItemDatas();
-		}
+        }
 
-	};
+    };
 
     private void initItemDatas() {
         // mProgressDialog.show();
@@ -150,14 +151,14 @@ public class BrandListActivity extends BaseActivity {
         mBrandAdapter.notifyDataSetChanged();
     }
 
-	private OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
+    private OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
 
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             ContextUtils.showTips(BrandListActivity.this, R.drawable.tips_smile, "item" + position);
-		}
+        }
 
-	};
+    };
 
     // private void getBrandsByCategory(int currentPage) {
     // mProgressDialog.show();
@@ -193,41 +194,41 @@ public class BrandListActivity extends BaseActivity {
     //
     // };
 
-	private class BrandAdapter extends BaseAdapter {
+    private class BrandAdapter extends BaseAdapter {
 
-		@Override
-		public int getCount() {
-			return mBrandList.size();
-		}
+        @Override
+        public int getCount() {
+            return mBrandList.size();
+        }
 
-		@Override
-		public Object getItem(int position) {
-			return position;
-		}
+        @Override
+        public Object getItem(int position) {
+            return position;
+        }
 
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
 
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			if (convertView == null) {
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
                 convertView = getLayoutInflater().inflate(R.layout.layout_brand_item, parent, false);
             }
 
-			ImageView imgPic = (ImageView) convertView.findViewById(R.id.img_pic);
-			TextView txtName = (TextView) convertView.findViewById(R.id.txt_name);
+            ImageView imgPic = (ImageView) convertView.findViewById(R.id.img_pic);
+            TextView txtName = (TextView) convertView.findViewById(R.id.txt_name);
 
-			Brand brand = mBrandList.get(position);
+            Brand brand = mBrandList.get(position);
 
             // JuranConsumerApplication.getImageManager().setImage(imgPic,
             // brand.getLogo(), R.color.background);
-			txtName.setText(brand.getName());
+            txtName.setText(brand.getName());
 
-			return convertView;
-		}
+            return convertView;
+        }
 
-	}
+    }
 
 }

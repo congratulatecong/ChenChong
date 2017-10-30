@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.wifi.manager.Defaults;
 import com.cong.chenchong.wifi.manager.FTPServerService;
 import com.cong.chenchong.wifi.manager.Globals;
@@ -34,7 +35,7 @@ import java.io.File;
 import java.net.InetAddress;
 
 @SuppressLint("NewApi")
-public class WiFiActivity extends BaseActivity {
+public class WiFiActivity extends SlidingActivity {
 
     private TextView ipText;
 

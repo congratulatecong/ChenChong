@@ -4,18 +4,18 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.util.BlurUtil;
 import com.cong.chenchong.util.FastBlur;
 import com.cong.chenchong.widget.SmileView;
 
-public class SmileAppraiseActivity extends AppCompatActivity {
+public class SmileAppraiseActivity extends SlidingActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

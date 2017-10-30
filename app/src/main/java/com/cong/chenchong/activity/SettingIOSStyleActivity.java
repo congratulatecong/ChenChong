@@ -1,13 +1,10 @@
 package com.cong.chenchong.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.dtr.settingview.lib.SettingView;
 import com.dtr.settingview.lib.SettingView.onSettingViewItemClickListener;
 import com.dtr.settingview.lib.SettingView.onSettingViewItemSwitchListener;
@@ -16,7 +13,10 @@ import com.dtr.settingview.lib.entity.SettingViewItemData;
 import com.dtr.settingview.lib.item.BasicItemViewH;
 import com.dtr.settingview.lib.item.SwitchItemView;
 
-public class SettingIOSStyleActivity extends Activity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SettingIOSStyleActivity extends SlidingActivity {
 
 	private SettingView mSettingView1 = null;
 	private SettingView mSettingView2 = null;

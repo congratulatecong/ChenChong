@@ -1,8 +1,5 @@
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.widget.RippleView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,7 +7,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RippleActivity extends BaseActivity implements OnClickListener {
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.widget.RippleView;
+
+public class RippleActivity extends SlidingActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

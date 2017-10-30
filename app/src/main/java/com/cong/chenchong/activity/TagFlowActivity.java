@@ -1,14 +1,15 @@
 
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.widget.TagFlowLayout;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
-public class TagFlowActivity extends BaseActivity {
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.widget.TagFlowLayout;
+
+public class TagFlowActivity extends SlidingActivity {
     private String[] mVals = new String[] {
         "Hello", "Android", "Weclome Hi ", "Button", "TextView", "Hello", "Android", "Weclome", "Button ImageView", "TextView", "Helloworld", "Android", "Weclome Hello", "Button Text", "TextView"
     };

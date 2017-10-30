@@ -1,11 +1,11 @@
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-
-import android.app.Activity;
 import android.os.Bundle;
 
-public class SettingCommonLayoutActivity extends Activity {
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class SettingCommonLayoutActivity extends SlidingActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

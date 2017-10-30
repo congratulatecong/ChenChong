@@ -1,14 +1,15 @@
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class ScrollViewActivity extends BaseActivity implements OnClickListener {
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class ScrollViewActivity extends SlidingActivity implements OnClickListener {
 	private TextView txtReboundScrollView;
 	private TextView txtElasticScrollView;
 	private TextView txtElasticRefresh;

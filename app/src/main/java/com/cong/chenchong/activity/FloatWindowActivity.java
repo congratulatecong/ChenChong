@@ -1,18 +1,19 @@
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.floatwindow.FloatWindowService;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class FloatWindowActivity extends BaseActivity implements OnClickListener {
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+import com.cong.chenchong.R;
+import com.cong.chenchong.floatwindow.FloatWindowService;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class FloatWindowActivity extends SlidingActivity implements OnClickListener {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_float_window);
 
         TextView title = (TextView) findViewById(R.id.txt_title);
@@ -20,7 +21,7 @@ public class FloatWindowActivity extends BaseActivity implements OnClickListener
 
         TextView tvOpenFloatWindow = (TextView) findViewById(R.id.tv_open_float_window);
         tvOpenFloatWindow.setOnClickListener(this);
-	}
+    }
 
     @Override
     public void onClick(View v) {

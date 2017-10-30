@@ -1,29 +1,6 @@
 
 package com.cong.chenchong.activity;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import com.cong.chenchong.R;
-import com.cong.chenchong.base.SPConfigManager;
-import com.cong.chenchong.base.SingleChatPubNumHelper;
-import com.cong.chenchong.bean.CallshowExtItem;
-import com.cong.chenchong.helper.EmotionPlugin;
-import com.cong.chenchong.robot.ChatMessage;
-import com.cong.chenchong.robot.ChatMessage.Type;
-import com.cong.chenchong.robot.ChatMessageAdapter;
-import com.cong.chenchong.robot.HttpUtils;
-import com.cong.chenchong.util.EmojiUtils;
-import com.cong.chenchong.util.Utils;
-import com.cong.chenchong.widget.BottomQuickAction;
-import com.cong.chenchong.widget.BottomQuickAction.BottomItem;
-import com.cong.chenchong.widget.EditTextBase;
-import com.cong.chenchong.widget.EditTextBase.OnCloseOtherViewsListerner;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -61,7 +38,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-public class RobotActivity extends BaseActivity implements OnClickListener {
+import com.cong.chenchong.R;
+import com.cong.chenchong.base.SPConfigManager;
+import com.cong.chenchong.base.SingleChatPubNumHelper;
+import com.cong.chenchong.bean.CallshowExtItem;
+import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.helper.EmotionPlugin;
+import com.cong.chenchong.robot.ChatMessage;
+import com.cong.chenchong.robot.ChatMessage.Type;
+import com.cong.chenchong.robot.ChatMessageAdapter;
+import com.cong.chenchong.robot.HttpUtils;
+import com.cong.chenchong.util.EmojiUtils;
+import com.cong.chenchong.util.Utils;
+import com.cong.chenchong.widget.BottomQuickAction;
+import com.cong.chenchong.widget.BottomQuickAction.BottomItem;
+import com.cong.chenchong.widget.EditTextBase;
+import com.cong.chenchong.widget.EditTextBase.OnCloseOtherViewsListerner;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class RobotActivity extends SlidingActivity implements OnClickListener {
 
     private ListView mMsgs;
 

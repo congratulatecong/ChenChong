@@ -11,8 +11,9 @@ import android.widget.Toast;
 import com.cong.chenchong.R;
 import com.cong.chenchong.util.BlurUtil;
 import com.cong.chenchong.util.FastBlur;
+import com.cong.chenchong.global.SlidingActivity;
 
-public class PhotoBlurActivity extends BaseActivity implements OnClickListener {
+public class PhotoBlurActivity extends SlidingActivity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

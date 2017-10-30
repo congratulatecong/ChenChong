@@ -1,16 +1,17 @@
 
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.dialog.Effectstype;
-import com.cong.chenchong.dialog.NiftyDialogBuilder;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DialogActivity extends BaseActivity {
+import com.cong.chenchong.R;
+import com.cong.chenchong.dialog.Effectstype;
+import com.cong.chenchong.dialog.NiftyDialogBuilder;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class DialogActivity extends SlidingActivity {
 
     private Effectstype effect;
 
@@ -90,12 +91,12 @@ public class DialogActivity extends BaseActivity {
                         Toast.makeText(v.getContext(), "I'm btn1", Toast.LENGTH_SHORT).show();
                     }
                 }).setButton2Click(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(v.getContext(), "I'm btn2", Toast.LENGTH_SHORT).show();
-                        dialogBuilder.dismiss();
-                    }
-                }).show();
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "I'm btn2", Toast.LENGTH_SHORT).show();
+                dialogBuilder.dismiss();
+            }
+        }).show();
 
     }
 }

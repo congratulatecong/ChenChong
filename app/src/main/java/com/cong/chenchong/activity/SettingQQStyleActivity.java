@@ -1,13 +1,10 @@
 package com.cong.chenchong.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.dtr.settingview.lib.SettingButton;
 import com.dtr.settingview.lib.SettingButton.onSettingButtonClickListener;
 import com.dtr.settingview.lib.SettingButton.onSettingButtonSwitchListener;
@@ -19,7 +16,10 @@ import com.dtr.settingview.lib.item.CheckItemViewV;
 import com.dtr.settingview.lib.item.ImageItemView;
 import com.dtr.settingview.lib.item.SwitchItemView;
 
-public class SettingQQStyleActivity extends Activity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SettingQQStyleActivity extends SlidingActivity {
 
 	private SettingView mSettingView1 = null;
 	private SettingView mSettingView2 = null;

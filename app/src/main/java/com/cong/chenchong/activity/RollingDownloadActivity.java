@@ -2,17 +2,17 @@ package com.cong.chenchong.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.widget.RollingDownload.RollingDownloadView;
 import com.cong.chenchong.widget.RollingDownload.RollingDownloadViewGroup;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class RollingDownloadActivity extends AppCompatActivity implements RollingDownloadView.OnProgressStateChangeListener {
+public class RollingDownloadActivity extends SlidingActivity implements RollingDownloadView.OnProgressStateChangeListener {
     //模拟进度的计时器
     private Timer timer;
     private int progress;

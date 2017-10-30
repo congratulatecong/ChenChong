@@ -1,13 +1,14 @@
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.adapter.CourseListViewAdapter;
-
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class AsyncTaskActivity extends BaseActivity {
+import com.cong.chenchong.R;
+import com.cong.chenchong.adapter.CourseListViewAdapter;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class AsyncTaskActivity extends SlidingActivity {
 
     private ListView mListView;
 

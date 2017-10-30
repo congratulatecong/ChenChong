@@ -13,11 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.waterdrop.CoverManager;
 import com.cong.chenchong.waterdrop.DropCover.OnDragCompeteListener;
 import com.cong.chenchong.waterdrop.WaterDrop;
 
-public class WaterDropActivity extends BaseActivity implements OnItemClickListener {
+public class WaterDropActivity extends SlidingActivity implements OnItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

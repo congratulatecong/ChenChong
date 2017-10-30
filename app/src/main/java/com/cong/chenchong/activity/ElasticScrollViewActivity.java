@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 
-public class ElasticScrollViewActivity extends BaseActivity {
+public class ElasticScrollViewActivity extends SlidingActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

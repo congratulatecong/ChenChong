@@ -10,7 +10,12 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.cong.chenchong.constant.Constants;
+import com.cong.chenchong.global.SlidingActivity;
 
+/**
+ * @deprecated use {@link SlidingActivity} instead
+ */
+@Deprecated
 public class BaseActivity extends Activity implements OnGestureListener {
 
     // 增加手势关闭的功能

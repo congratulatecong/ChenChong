@@ -1,17 +1,18 @@
 package com.cong.chenchong.activity;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.fragment.SwipeListviewFragment;
-import com.cong.chenchong.fragment.SwipeScrollViewFragment;
-
-import android.os.Bundle;
 import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class SwipeRefreshActivity extends BaseActivity implements OnClickListener {
+import com.cong.chenchong.R;
+import com.cong.chenchong.fragment.SwipeListviewFragment;
+import com.cong.chenchong.fragment.SwipeScrollViewFragment;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class SwipeRefreshActivity extends SlidingActivity implements OnClickListener {
 
 	private Button btnSwipeListView;
 	private Button btnSwipeScrollView;
