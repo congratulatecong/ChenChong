@@ -1,42 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/color_primary"
-              android:orientation="vertical">
-
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        app:navigationIcon="@drawable/btn_navigation_back"
-        app:titleTextColor="@color/white"/>
-
-    <ImageView
-        android:id="@+id/img_back"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:background="@drawable/img_back_bg"
-        android:onClick="navigationBack"
-        android:scaleType="center"
-        android:src="@drawable/btn_navigation_back"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/txt_title"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_weight="1"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:singleLine="true"
-        android:text="@string/default_title"
-        android:textColor="@color/white"
-        android:textSize="22sp"
-        android:visibility="gone"/>
-
-</LinearLayout>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_primary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@drawable/btn_navigation_back"
+    app:titleTextColor="@color/white"/>

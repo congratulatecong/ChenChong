@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
 
-    <include layout="@layout/layout_navigation_bar" />
+    <include layout="@layout/layout_navigation_bar"/>
 
     <ListView
         android:id="@+id/listview_tree_viewer"
@@ -13,6 +13,6 @@
         android:cacheColorHint="@color/transparent"
         android:divider="@color/listview_divider"
         android:dividerHeight="1px"
-        android:listSelector="@drawable/tree_viewer_listitem_bg" />
+        android:listSelector="@drawable/tree_viewer_listitem_bg"/>
 
 </LinearLayout>
