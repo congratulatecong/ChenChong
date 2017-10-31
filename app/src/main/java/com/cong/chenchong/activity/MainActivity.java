@@ -27,7 +27,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.adapter.MainAdapter;
@@ -37,10 +36,18 @@ import com.cong.chenchong.ui.UiActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import rx.android.schedulers.AndroidSchedulers;
+import rx.subjects.PublishSubject;
+import rx.subjects.SerializedSubject;
+import rx.subjects.Subject;
 
 public class MainActivity extends SlidingActivity implements OnItemClickListener {
 
-    public static final int EXIT_INTERVAL = 2000;
+    private static final int EXIT_INTERVAL = 2000;
+    public static final String ACTION_NETWORKTYPE_INVALID = "android.intent.action.NetworkTypeInvalid";
+    public static final String ACTION_NETWORKTYPE_2G = "android.intent.action.NetworkType2G";
 
     private ListView mListView;
 
@@ -58,8 +65,7 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
     private Handler mHandler = new Handler();
 
-    public static final String ACTION_NETWORKTYPE_INVALID = "android.intent.action.NetworkTypeInvalid";
-    public static final String ACTION_NETWORKTYPE_2G = "android.intent.action.NetworkType2G";
+    private Subject<Void, Void> exitWatcher = new SerializedSubject<>(PublishSubject.create());
 
     private BroadcastReceiver mNetRecriver = new BroadcastReceiver() {
         @Override
@@ -93,6 +99,29 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
         initView();
 
+        initExitWatcher();
+
+    }
+
+    /**
+     * 再按一次 退出程序
+     */
+    private void initExitWatcher() {
+        exitWatcher.asObservable()
+                .compose(bindToLifecycle())
+                .throttleFirst(EXIT_INTERVAL, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
+                .subscribe(it -> {
+                            mLayoutExitTips.setVisibility(View.VISIBLE);
+                            mTxtExitTips.setText(R.string.exit_app_tip);
+                            mLayoutExitTips.postDelayed(() -> mLayoutExitTips.setVisibility(View.GONE), EXIT_INTERVAL);
+                        },
+                        Throwable::printStackTrace);
+        exitWatcher.asObservable()
+                .compose(bindToLifecycle())
+                .timeInterval(AndroidSchedulers.mainThread())
+                .skip(1)
+                .filter(it -> it.getIntervalInMilliseconds() < EXIT_INTERVAL)
+                .subscribe(it -> finish(), Throwable::printStackTrace);
     }
 
     @Override
@@ -129,12 +158,23 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
             unregisterReceiver(mNetRecriver);
 //            LocalBroadcastManager.getInstance(this).unregisterReceiver(mNetRecriver);
         }
+        if (exitWatcher != null) {
+            exitWatcher.onCompleted();
+            exitWatcher = null;
+        }
     }
 
     @Override
     protected void onRestart() {
         Log.v("cc", "onRestart");
         super.onRestart();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (exitWatcher != null) {
+            exitWatcher.onNext(null);
+        }
     }
 
     private void initData() {
@@ -341,25 +381,26 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         }
     }
 
+
+    /**
+     * 再按一次 退出程序
+     *
+     * @param event
+     * @return
+     */
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() != KeyEvent.KEYCODE_BACK || event.getAction() != KeyEvent.ACTION_DOWN) {
-            return super.dispatchKeyEvent(event);
-        }
-
-        if ((System.currentTimeMillis() - clickTime) > EXIT_INTERVAL) {
-            Toast.makeText(this, R.string.exit_app_tip, Toast.LENGTH_SHORT).show();
-            mLayoutExitTips.setVisibility(View.VISIBLE);
-            mTxtExitTips.setText(R.string.exit_app_tip);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mLayoutExitTips.setVisibility(View.GONE);
-                }
-            }, EXIT_INTERVAL);
-            clickTime = System.currentTimeMillis();
-            return true;
-        }
+//        if (event.getKeyCode() != KeyEvent.KEYCODE_BACK || event.getAction() != KeyEvent.ACTION_DOWN) {
+//            return super.dispatchKeyEvent(event);
+//        }
+//
+//        if ((System.currentTimeMillis() - clickTime) > EXIT_INTERVAL) {
+//            mLayoutExitTips.setVisibility(View.VISIBLE);
+//            mTxtExitTips.setText(R.string.exit_app_tip);
+//            mLayoutExitTips.postDelayed(() -> mLayoutExitTips.setVisibility(View.GONE), EXIT_INTERVAL);
+//            clickTime = System.currentTimeMillis();
+//            return true;
+//        }
         return super.dispatchKeyEvent(event);
     }
 
