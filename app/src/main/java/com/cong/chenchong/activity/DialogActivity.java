@@ -2,8 +2,8 @@
 package com.cong.chenchong.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
@@ -20,8 +20,9 @@ public class DialogActivity extends SlidingActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
 
-        TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-        txtTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
     }
 

@@ -2,16 +2,16 @@ package com.cong.chenchong.activity;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.util.BlurUtil;
 import com.cong.chenchong.util.FastBlur;
-import com.cong.chenchong.global.SlidingActivity;
 
 public class PhotoBlurActivity extends SlidingActivity implements OnClickListener {
     @Override
@@ -19,8 +19,9 @@ public class PhotoBlurActivity extends SlidingActivity implements OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_blur);
 
-        TextView title = (TextView) findViewById(R.id.txt_title);
-        title.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         ImageView ivBlur = (ImageView) findViewById(R.id.iv_blur);
         try {

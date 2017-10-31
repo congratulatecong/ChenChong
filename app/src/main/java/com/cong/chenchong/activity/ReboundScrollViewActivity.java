@@ -1,7 +1,7 @@
 package com.cong.chenchong.activity;
 
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
@@ -12,8 +12,9 @@ public class ReboundScrollViewActivity extends SlidingActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rebound_scroll_view);
 
-        TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-        txtTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
     }
 }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -128,8 +129,10 @@ public class RobotActivity extends SlidingActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_robot);
 
-        TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-        txtTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+
         mSharedPrefrences = new SPConfigManager(this);
         mTxtSize = mSharedPrefrences.getFontSize();
         mBottomPubNumVisual = mSharedPrefrences.isPopupMenuShow(); // 取上一次底部状态。

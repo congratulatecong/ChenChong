@@ -16,17 +16,17 @@
 
 package com.cong.chenchong.ui;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.activity.BaseActivity;
-
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
+
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 
 
-public class CustomLoadingActivity extends BaseActivity {
+public class CustomLoadingActivity extends SlidingActivity {
 
 	private ProgressWheel pwOne, pwTwo;
 	private PieProgress mPieProgress1, mPieProgress2;
@@ -38,8 +38,9 @@ public class CustomLoadingActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_loading);
 
-        TextView tvTitle = (TextView) findViewById(R.id.txt_title);
-        tvTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
 		pwOne = (ProgressWheel) findViewById(R.id.progress_bar_one);
 		pwOne.spin();

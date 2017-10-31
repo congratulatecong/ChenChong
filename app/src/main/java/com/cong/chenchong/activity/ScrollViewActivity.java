@@ -2,6 +2,7 @@ package com.cong.chenchong.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -19,9 +20,9 @@ public class ScrollViewActivity extends SlidingActivity implements OnClickListen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_scroll_view);
 
-		String title = getIntent().getStringExtra("title");
-		TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-		txtTitle.setText(title);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
 		txtReboundScrollView = (TextView) findViewById(R.id.txt_rebound_scroll_view);
 		txtReboundScrollView.setOnClickListener(this);

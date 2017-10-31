@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.TestLiveTemplateActivity">
+    tools:context=".activity.TestActivity">
 
     <ImageView
         android:id="@+id/iv_girl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:fitsSystemWindows="true"
+        android:scaleType="centerCrop"
         android:src="@drawable/image_girl"/>
 
 </RelativeLayout>

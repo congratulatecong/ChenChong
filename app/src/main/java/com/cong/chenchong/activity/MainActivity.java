@@ -321,7 +321,7 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
                 startActivity(intent);
                 break;
             case 15:
-                intent.setClass(this, TestLiveTemplateActivity.class);
+                intent.setClass(this, TestActivity.class);
                 intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
                 startActivity(intent);
                 break;

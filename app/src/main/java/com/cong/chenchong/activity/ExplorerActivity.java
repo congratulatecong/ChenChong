@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,23 +16,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.cong.chenchong.global.SlidingActivity;
 
 import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
 
 public class ExplorerActivity extends SlidingActivity implements OnClickListener {
 
-    private TextView mTxtTitle;
+    private Toolbar toolbar;
     private WebView mWebView;
     private ProgressBar mProgressBar;
     private ImageView mImgBack;
     private ImageView mImgForward;
     private ImageView mImgRefresh;
-
-    private String mTitle;
-    private String mUrl;
 
     private boolean isRefreshable;
 
@@ -42,11 +38,11 @@ public class ExplorerActivity extends SlidingActivity implements OnClickListener
         setContentView(R.layout.activity_explorer);
 
         Intent intent = getIntent();
-        mTitle = intent.getStringExtra("title");
-        mUrl = intent.getStringExtra("url");
+        String mUrl = intent.getStringExtra("url");
 
-        mTxtTitle = (TextView) findViewById(R.id.txt_title);
-        mTxtTitle.setText(mTitle);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
@@ -135,7 +131,7 @@ public class ExplorerActivity extends SlidingActivity implements OnClickListener
     private WebChromeClient mWebChromeClient = new WebChromeClient() {
         @Override
         public void onReceivedTitle(WebView view, String title) {
-            mTxtTitle.setText(title);
+            toolbar.setTitle(title);
         }
     };
 

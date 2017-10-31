@@ -2,10 +2,10 @@ package com.cong.chenchong.activity;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.fragment.SwipeListviewFragment;
@@ -23,8 +23,9 @@ public class SwipeRefreshActivity extends SlidingActivity implements OnClickList
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_swipe_refresh);
 
-		TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-		txtTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
 		btnSwipeListView = (Button) findViewById(R.id.btn_swipe_listview);
 		btnSwipeListView.setOnClickListener(this);

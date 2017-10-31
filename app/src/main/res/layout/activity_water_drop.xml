@@ -1,15 +1,17 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@color/main_bg"
+    android:orientation="vertical">
 
-    <include layout="@layout/layout_navigation_bar" />
+    <include layout="@layout/layout_navigation_bar"/>
 
     <ListView
         android:id="@+id/listview_water_drop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fastScrollEnabled="true"
-        android:listSelector="@drawable/tree_viewer_listitem_bg" />
+        android:listSelector="@drawable/tree_viewer_listitem_bg"/>
 
 </LinearLayout>

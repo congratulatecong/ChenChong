@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
     <include layout="@layout/layout_navigation_bar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ScrollView
             android:layout_width="0.0dip"
             android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:background="@drawable/img_category_bg"
-            android:scrollbars="none" >
+            android:scrollbars="none">
 
             <com.cong.chenchong.widget.SegmentBar
                 xmlns:ptr="http://schemas.android.com/apk/res-auto"
@@ -26,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                ptr:selector="@color/white" />
+                ptr:selector="@color/white"/>
         </ScrollView>
 
         <GridView
@@ -41,7 +43,7 @@
             android:numColumns="2"
             android:padding="10.0dip"
             android:scrollbarStyle="outsideOverlay"
-            android:verticalSpacing="10.0dip" />
+            android:verticalSpacing="10.0dip"/>
     </LinearLayout>
 
 </LinearLayout>

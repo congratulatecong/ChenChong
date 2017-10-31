@@ -1,16 +1,17 @@
 
 package com.cong.chenchong.ui;
 
-import com.cong.chenchong.R;
-import com.cong.chenchong.activity.BaseActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class UiActivity extends BaseActivity implements OnClickListener {
+import com.cong.chenchong.R;
+import com.cong.chenchong.global.SlidingActivity;
+
+public class UiActivity extends SlidingActivity implements OnClickListener {
 
     private TextView mTvCommonWidget;
 
@@ -21,8 +22,9 @@ public class UiActivity extends BaseActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ui);
 
-        TextView tvTitle = (TextView) findViewById(R.id.txt_title);
-        tvTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         mTvCommonWidget = (TextView) findViewById(R.id.tv_common_widget);
         mTvCommonWidget.setOnClickListener(this);

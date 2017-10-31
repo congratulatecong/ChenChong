@@ -1,10 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical" >
+    android:background="@color/main_bg"
+    android:orientation="vertical">
 
-    <include layout="@layout/layout_navigation_bar" />
+    <include layout="@layout/layout_navigation_bar"/>
 
     <ListView
         android:id="@+id/listview_robot"
@@ -12,19 +13,19 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:divider="@null"
+        android:dividerHeight="1dp"
         android:listSelector="@color/transparent"
-        android:transcriptMode="alwaysScroll"
-        android:dividerHeight="1dp" >
+        android:transcriptMode="alwaysScroll">
     </ListView>
-    
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <include
             android:id="@+id/ll_chat_bottom"
             layout="@layout/chat_bottom"
-            android:minHeight="56dp" />
+            android:minHeight="56dp"/>
 
         <ViewStub
             android:id="@+id/stub_pub_num_bottom"
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:inflatedId="@+id/ll_pub_num_bottom"
             android:layout="@layout/chat_bottom_public_number"
-            android:minHeight="56dp" />
+            android:minHeight="56dp"/>
     </FrameLayout>
 
 </LinearLayout>

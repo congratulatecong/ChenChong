@@ -2,6 +2,7 @@
 package com.cong.chenchong.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
@@ -26,8 +26,9 @@ public class WaterDropActivity extends SlidingActivity implements OnItemClickLis
         setContentView(R.layout.activity_water_drop);
         CoverManager.getInstance().init(this);
 
-        TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-        txtTitle.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         ListView mListView = (ListView) findViewById(R.id.listview_water_drop);
         mListView.setAdapter(new DemoAdapter());

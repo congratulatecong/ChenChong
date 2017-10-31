@@ -2,9 +2,9 @@ package com.cong.chenchong.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.TextView;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
@@ -29,9 +29,10 @@ public class SettingActivity extends SlidingActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setting);
-		
-		TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-		txtTitle.setText(getIntent().getStringExtra("title"));
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
 		mSettingView = (SettingView) findViewById(R.id.main_setting_view);
 		mSettingView.setOnSettingViewItemClickListener(new onSettingViewItemClickListener() {

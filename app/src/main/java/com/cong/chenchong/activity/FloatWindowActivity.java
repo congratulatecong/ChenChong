@@ -2,6 +2,7 @@ package com.cong.chenchong.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -16,8 +17,9 @@ public class FloatWindowActivity extends SlidingActivity implements OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_float_window);
 
-        TextView title = (TextView) findViewById(R.id.txt_title);
-        title.setText(getIntent().getStringExtra("title"));
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("title"));
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         TextView tvOpenFloatWindow = (TextView) findViewById(R.id.tv_open_float_window);
         tvOpenFloatWindow.setOnClickListener(this);
