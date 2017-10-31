@@ -75,7 +75,7 @@ public class RollingSquareView extends View {
         int rollInterpolatorResId = typedArray.getResourceId(R.styleable.RollingSquareView_roll_interpolator,
                 android.R.anim.linear_interpolator);
         mRollInterpolator = AnimationUtils.loadInterpolator(context, rollInterpolatorResId);
-        int defaultColor = context.getResources().getColor(R.color.colorPrimary);
+        int defaultColor = context.getResources().getColor(R.color.color_primary);
         mSquareColor = typedArray.getColor(R.styleable.RollingSquareView_square_color, defaultColor);
         mSpeed = typedArray.getInteger(R.styleable.RollingSquareView_roll_speed, 250);
         if (mLineCount < 2) {

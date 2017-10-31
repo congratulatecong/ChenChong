@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
@@ -177,9 +178,9 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
     }
 
     private void initView() {
-        findViewById(R.id.img_back).setVisibility(View.GONE);
-        TextView txtTitle = (TextView) findViewById(R.id.txt_title);
-        txtTitle.setText(R.string.main_title);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(null);
+        toolbar.setTitle(R.string.main_title);
 
         mLayoutExitTips = (LinearLayout) findViewById(R.id.layout_exit_tips);
         mTxtExitTips = (TextView) findViewById(R.id.txt_exit_tips);

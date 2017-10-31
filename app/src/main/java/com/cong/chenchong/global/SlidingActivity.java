@@ -6,6 +6,7 @@ import android.support.annotation.LayoutRes;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cong.chenchong.R;
 import com.cong.chenchong.widget.swipeBackLayout.BGASwipeBackLayout;
 
 public abstract class SlidingActivity extends ImmersionActivity implements BGASwipeBackLayout.PanelSlideListener {
@@ -156,16 +157,16 @@ public abstract class SlidingActivity extends ImmersionActivity implements BGASw
      */
     public void executeForwardAnim() {
         //TODO:背景设置透明，R.anim.activity_forward_exit无效
-//        overridePendingTransition(R.anim.activity_forward_enter, R.anim.activity_forward_exit);
+        overridePendingTransition(R.anim.activity_forward_enter, R.anim.activity_forward_exit);
     }
 
     public void executeBackwardAnim() {
         //TODO:背景设置透明，R.anim.activity_backward_enter无效
-//        overridePendingTransition(R.anim.activity_backward_enter, R.anim.activity_backward_exit);
+        overridePendingTransition(R.anim.activity_backward_enter, R.anim.activity_backward_exit);
     }
 
     public void executeSwipeBackAnim() {
-//        overridePendingTransition(R.anim.activity_swipeback_enter, R.anim.activity_swipeback_exit);
+        overridePendingTransition(R.anim.activity_swipeback_enter, R.anim.activity_swipeback_exit);
     }
 
 }

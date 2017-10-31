@@ -19,7 +19,7 @@
         app:roll_interpolator="@android:anim/bounce_interpolator"
         app:roll_round_corner="5"
         app:roll_speed="500"
-        app:square_color="@color/colorPrimary"
+        app:square_color="@color/color_primary"
         app:start_empty_position="3"/>
 
     <com.cong.chenchong.widget.RollingDownload.RollingDownloadViewGroup

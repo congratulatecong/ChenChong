@@ -1,22 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:descendantFocusability="blocksDescendants"
-    android:orientation="vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/main_bg"
+              android:orientation="vertical">
 
-    <include layout="@layout/layout_navigation_bar" />
+    <include layout="@layout/layout_navigation_bar"/>
 
-    <include layout="@layout/layout_exit_tips" />
+    <include layout="@layout/layout_exit_tips"/>
 
     <FrameLayout
         android:id="@+id/fl_main_tips"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
     <ListView
         android:id="@+id/listview_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

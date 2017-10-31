@@ -1,19 +1,21 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
     </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="@style/BaseAppTheme">
-        <item name="android:windowBackground">@color/main_bg</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <!--如果用代码设置状态栏透明，SlidingActivity滑动返回时会出现抖动，故用style设置-->
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <!--For ActivitySwipeBack -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="common_btn">

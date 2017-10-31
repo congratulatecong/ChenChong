@@ -24,7 +24,7 @@
         android:id="@+id/view_rolling_download"
         android:layout_width="280dp"
         android:layout_height="45dp"
-        app:bg_color="@color/colorPrimary"
+        app:bg_color="@color/color_primary"
         app:left_loading_speed="2500"
         app:progress_color="#ccc"
         app:right_loading_speed="8"
