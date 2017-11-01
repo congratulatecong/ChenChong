@@ -9,7 +9,7 @@
     android:visibility="gone">
 
     <TextView
-        android:id="@+id/txt_exit_tips"
+        android:id="@+id/tv_exit_tips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"

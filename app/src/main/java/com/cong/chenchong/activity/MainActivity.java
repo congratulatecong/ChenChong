@@ -34,8 +34,8 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
     private List<AndroidKernel> mAndroidKernelList;
     private long clickTime = 0;
-    private LinearLayout mLayoutExitTips;
-    private TextView mTxtExitTips;
+    private LinearLayout layoutExitTips;
+    private TextView tvExitTips;
     private Subject<Void, Void> exitWatcher = new SerializedSubject<>(PublishSubject.create());
 
     @Override
@@ -46,74 +46,6 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         initData();
         initView();
         initExitWatcher();
-    }
-
-    /**
-     * 再按一次 退出程序
-     */
-    private void initExitWatcher() {
-        exitWatcher.asObservable()
-                .compose(bindToLifecycle())
-                .throttleFirst(EXIT_INTERVAL, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
-                .subscribe(it -> {
-                            mLayoutExitTips.setVisibility(View.VISIBLE);
-                            mTxtExitTips.setText(R.string.exit_app_tip);
-                            mLayoutExitTips.postDelayed(() -> mLayoutExitTips.setVisibility(View.GONE), EXIT_INTERVAL);
-                        },
-                        Throwable::printStackTrace);
-        exitWatcher.asObservable()
-                .compose(bindToLifecycle())
-                .timeInterval(AndroidSchedulers.mainThread())
-                .skip(1)
-                .filter(it -> it.getIntervalInMilliseconds() < EXIT_INTERVAL)
-                .subscribe(it -> finish(), Throwable::printStackTrace);
-    }
-
-    @Override
-    protected void onStart() {
-        Log.v("cc", "onStart");
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        Log.v("cc", "onResume");
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        Log.v("cc", "onPause");
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        Log.v("cc", "onStop");
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        Log.v("cc", "onDestroy");
-        super.onDestroy();
-        if (exitWatcher != null) {
-            exitWatcher.onCompleted();
-            exitWatcher = null;
-        }
-    }
-
-    @Override
-    protected void onRestart() {
-        Log.v("cc", "onRestart");
-        super.onRestart();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (exitWatcher != null) {
-            exitWatcher.onNext(null);
-        }
     }
 
     private void initData() {
@@ -161,13 +93,34 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         toolbar.setNavigationIcon(null);
         toolbar.setTitle(R.string.main_title);
 
-        mLayoutExitTips = (LinearLayout) findViewById(R.id.layout_exit_tips);
-        mTxtExitTips = (TextView) findViewById(R.id.txt_exit_tips);
+        layoutExitTips = (LinearLayout) findViewById(R.id.layout_exit_tips);
+        tvExitTips = (TextView) findViewById(R.id.tv_exit_tips);
 
-        ListView mListView = (ListView) findViewById(R.id.listview_main);
-        MainAdapter mMainAdapter = new MainAdapter(this, mAndroidKernelList);
-        mListView.setAdapter(mMainAdapter);
-        mListView.setOnItemClickListener(this);
+        ListView lvMain = (ListView) findViewById(R.id.lv_main);
+        MainAdapter mainAdapter = new MainAdapter(this, mAndroidKernelList);
+        lvMain.setAdapter(mainAdapter);
+        lvMain.setOnItemClickListener(this);
+    }
+
+    /**
+     * 再按一次 退出程序
+     */
+    private void initExitWatcher() {
+        exitWatcher.asObservable()
+                .compose(bindToLifecycle())
+                .throttleFirst(EXIT_INTERVAL, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
+                .subscribe(it -> {
+                            layoutExitTips.setVisibility(View.VISIBLE);
+                            tvExitTips.setText(R.string.exit_app_tip);
+                            layoutExitTips.postDelayed(() -> layoutExitTips.setVisibility(View.GONE), EXIT_INTERVAL);
+                        },
+                        Throwable::printStackTrace);
+        exitWatcher.asObservable()
+                .compose(bindToLifecycle())
+                .timeInterval(AndroidSchedulers.mainThread())
+                .skip(1)
+                .filter(it -> it.getIntervalInMilliseconds() < EXIT_INTERVAL)
+                .subscribe(it -> finish(), Throwable::printStackTrace);
     }
 
     @Override
@@ -271,6 +224,52 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         }
     }
 
+    @Override
+    protected void onStart() {
+        Log.v("cc", "onStart");
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.v("cc", "onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.v("cc", "onPause");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.v("cc", "onStop");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.v("cc", "onDestroy");
+        super.onDestroy();
+        if (exitWatcher != null) {
+            exitWatcher.onCompleted();
+            exitWatcher = null;
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.v("cc", "onRestart");
+        super.onRestart();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (exitWatcher != null) {
+            exitWatcher.onNext(null);
+        }
+    }
 
     /**
      * 再按一次 退出程序
@@ -285,9 +284,9 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 //        }
 //
 //        if ((System.currentTimeMillis() - clickTime) > EXIT_INTERVAL) {
-//            mLayoutExitTips.setVisibility(View.VISIBLE);
-//            mTxtExitTips.setText(R.string.exit_app_tip);
-//            mLayoutExitTips.postDelayed(() -> mLayoutExitTips.setVisibility(View.GONE), EXIT_INTERVAL);
+//            layoutExitTips.setVisibility(View.VISIBLE);
+//            tvExitTips.setText(R.string.exit_app_tip);
+//            layoutExitTips.postDelayed(() -> layoutExitTips.setVisibility(View.GONE), EXIT_INTERVAL);
 //            clickTime = System.currentTimeMillis();
 //            return true;
 //        }

@@ -9,14 +9,8 @@
 
     <include layout="@layout/layout_exit_tips"/>
 
-    <FrameLayout
-        android:id="@+id/fl_main_tips"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
-
     <ListView
-        android:id="@+id/listview_main"
+        android:id="@+id/lv_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
