@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.cong.chenchong.R;
 import com.cong.chenchong.adapter.MainAdapter;
 import com.cong.chenchong.bean.AndroidKernel;
+import com.cong.chenchong.global.Debug;
 import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.ui.UiActivity;
 
@@ -226,31 +227,36 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
     @Override
     protected void onStart() {
-        Log.v("cc", "onStart");
+        if (Debug.enable)
+            Log.v("cc", "onStart");
         super.onStart();
     }
 
     @Override
     protected void onResume() {
-        Log.v("cc", "onResume");
+        if (Debug.enable)
+            Log.v("cc", "onResume");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.v("cc", "onPause");
+        if (Debug.enable)
+            Log.v("cc", "onPause");
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        Log.v("cc", "onStop");
+        if (Debug.enable)
+            Log.v("cc", "onStop");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.v("cc", "onDestroy");
+        if (Debug.enable)
+            Log.v("cc", "onDestroy");
         super.onDestroy();
         if (exitWatcher != null) {
             exitWatcher.onCompleted();
@@ -260,7 +266,8 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
     @Override
     protected void onRestart() {
-        Log.v("cc", "onRestart");
+        if (Debug.enable)
+            Log.v("cc", "onRestart");
         super.onRestart();
     }
 
