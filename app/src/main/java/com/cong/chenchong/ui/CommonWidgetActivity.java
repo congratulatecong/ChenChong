@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
-import com.cong.chenchong.activity.BaseActivity;
 import com.cong.chenchong.global.SlidingActivity;
 
 public class CommonWidgetActivity extends SlidingActivity {

@@ -76,14 +76,6 @@
 
         <service android:name=".wifi.manager.FTPServerService"/>
         <service android:name=".floatwindow.FloatWindowService"/>
-        <service
-            android:name=".activity.NetworkConnectService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.cong.chenchong.NetworkConnectService"/>
-            </intent-filter>
-        </service>
 
         <activity android:name=".activity.TestActivity"/>
     </application>

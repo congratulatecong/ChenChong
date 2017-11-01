@@ -1,31 +1,16 @@
 
 package com.cong.chenchong.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.provider.Settings;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cong.chenchong.R;
@@ -46,61 +31,21 @@ import rx.subjects.Subject;
 public class MainActivity extends SlidingActivity implements OnItemClickListener {
 
     private static final int EXIT_INTERVAL = 2000;
-    public static final String ACTION_NETWORKTYPE_INVALID = "android.intent.action.NetworkTypeInvalid";
-    public static final String ACTION_NETWORKTYPE_2G = "android.intent.action.NetworkType2G";
-
-    private ListView mListView;
 
     private List<AndroidKernel> mAndroidKernelList;
-
-    private MainAdapter mMainAdapter;
-
     private long clickTime = 0;
-
     private LinearLayout mLayoutExitTips;
-
     private TextView mTxtExitTips;
-
-    private FrameLayout mFLayoutTips;
-
-    private Handler mHandler = new Handler();
-
     private Subject<Void, Void> exitWatcher = new SerializedSubject<>(PublishSubject.create());
-
-    private BroadcastReceiver mNetRecriver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (action == null) {
-                return;
-            }
-            if (ACTION_NETWORKTYPE_INVALID.equals(action)) {
-                showTips("检测到网络连接异常，请确认。去设置");
-            } else if (ACTION_NETWORKTYPE_2G.equals(action)) {
-                showTips("检测到当前网速较慢，不稳定。去设置");
-            } else {
-                mFLayoutTips.setVisibility(View.GONE);
-            }
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ACTION_NETWORKTYPE_INVALID);
-        intentFilter.addAction(ACTION_NETWORKTYPE_2G);
-        registerReceiver(mNetRecriver, intentFilter);
-//        LocalBroadcastManager.getInstance(this).registerReceiver(mNetRecriver, intentFilter);
-
         initData();
-
         initView();
-
         initExitWatcher();
-
     }
 
     /**
@@ -134,8 +79,6 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
     protected void onResume() {
         Log.v("cc", "onResume");
         super.onResume();
-//        sendBroadcast(new Intent(ACTION_CONNECT_NETWORK));
-//        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ACTION_CONNECT_NETWORK));
     }
 
     @Override
@@ -154,10 +97,6 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
     protected void onDestroy() {
         Log.v("cc", "onDestroy");
         super.onDestroy();
-        if (mNetRecriver != null) {
-            unregisterReceiver(mNetRecriver);
-//            LocalBroadcastManager.getInstance(this).unregisterReceiver(mNetRecriver);
-        }
         if (exitWatcher != null) {
             exitWatcher.onCompleted();
             exitWatcher = null;
@@ -225,59 +164,10 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         mLayoutExitTips = (LinearLayout) findViewById(R.id.layout_exit_tips);
         mTxtExitTips = (TextView) findViewById(R.id.txt_exit_tips);
 
-        mFLayoutTips = (FrameLayout) findViewById(R.id.fl_main_tips);
-
-        mListView = (ListView) findViewById(R.id.listview_main);
-        mMainAdapter = new MainAdapter(this, mAndroidKernelList);
-        // mListView.setEmptyView(emptyView);
+        ListView mListView = (ListView) findViewById(R.id.listview_main);
+        MainAdapter mMainAdapter = new MainAdapter(this, mAndroidKernelList);
         mListView.setAdapter(mMainAdapter);
         mListView.setOnItemClickListener(this);
-    }
-
-    private void showTips(String tips) {
-        LayoutInflater lf = LayoutInflater.from(this);
-        RelativeLayout RLayoutSettingTips = (RelativeLayout) lf.inflate(R.layout.layout_setting_tips, null);
-        TextView txtTipsInfo = (TextView) RLayoutSettingTips.findViewById(R.id.txt_tips_info);
-        // txtTipsInfo.setText("360.cn" + "\n" + "18811790740" + "\n" +
-        // "congratulatecong@163.com");
-        // XML文件中对应为android:autoLink="all"
-        // txtTipsInfo.setAutoLinkMask(Linkify.ALL);
-        // txtTipsInfo.setMovementMethod(LinkMovementMethod.getInstance());
-        SpannableStringBuilder ssb = new SpannableStringBuilder(tips);
-        int length = ssb.length();
-        ssb.setSpan(new ForegroundColorSpan(Color.parseColor("#1a9df0")), length - 3, length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ssb.setSpan(new ClickableSpan() {
-
-            @Override
-            public void onClick(View widget) {
-                // 进入无线网络配置界面
-                // startActivity(new Intent(Settings.ACTION_WIRELESS_SETTINGS));
-                // 进入手机中的wifi网络设置界面
-                startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
-            }
-        }, length - 3, length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        txtTipsInfo.setText(ssb);
-        txtTipsInfo.setMovementMethod(LinkMovementMethod.getInstance());
-
-        ImageView imgTipsClose = (ImageView) RLayoutSettingTips.findViewById(R.id.img_tips_close);
-        imgTipsClose.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                mFLayoutTips.setVisibility(View.GONE);
-            }
-        });
-
-        mFLayoutTips.addView(RLayoutSettingTips);
-        mFLayoutTips.setVisibility(View.VISIBLE);
-
-        mHandler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                mFLayoutTips.setVisibility(View.GONE);
-            }
-        }, 5000);
     }
 
     @Override
