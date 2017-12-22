@@ -87,6 +87,8 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("创意评价");
         mAndroidKernelList.add(androidKernel);
+        androidKernel = new AndroidKernel("有条鱼");
+        mAndroidKernelList.add(androidKernel);
     }
 
     private void initView() {
@@ -216,6 +218,11 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
                 break;
             case 17:
                 intent.setClass(this, SmileAppraiseActivity.class);
+                intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
+                startActivity(intent);
+                break;
+            case 18:
+                intent.setClass(this, FishActivity.class);
                 intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
                 startActivity(intent);
                 break;
