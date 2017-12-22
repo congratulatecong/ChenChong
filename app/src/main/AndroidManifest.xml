@@ -65,7 +65,7 @@
         <activity android:name=".activity.TagFlowActivity"/>
         <activity android:name=".activity.VerticalTabActivity"/>
         <activity android:name=".activity.BrandListActivity"/>
-        <activity android:name=".activity.AsyncTaskActivity"/>
+        <activity android:name=".activity.ListBatchProcessActivity"/>
         <activity android:name=".activity.PhotoBlurActivity"/>
         <activity android:name=".ui.UiActivity"/>
         <activity android:name=".ui.CommonWidgetActivity"/>

@@ -2,9 +2,13 @@
 <resources>
     <color name="color_primary">#3F51B5</color>
     <color name="color_primary_dark">#303F9F</color>
-    <color name="color_accent">#FF4081</color>
+    <color name="color_accent">#008000</color>
 
     <color name="status_bar">@color/color_primary_dark</color>
+
+    <color name="list_item_p">#EEEEEE</color> <!-- divider line color -->
+    <color name="list_item_ripple">#FAFAFA</color> <!-- btn pressed color -->
+    <color name="list_item_n">@color/white</color><!-- 白色 -->
 
     <color name="white">#ffffffff</color>
     <color name="half_white">#80ffffff</color>
@@ -15,8 +19,8 @@
     <color name="exit_tips_bg">#80f0f0f0</color>
     <color name="navigation_bg">#ffcc0000</color>
     <color name="back_pressed_bg">#80C0C0C0</color>
-    <color name="listitem_pressed_bg">#60C0C0C0</color>
-    <color name="listview_divider">#80C0C0C0</color>
+    <color name="list_pressed_bg">#60C0C0C0</color>
+    <color name="list_divider">#80C0C0C0</color>
     <color name="water_drop_color">#ffff0000</color>
     <color name="separator">#ffd8d8d8</color>
     <color name="background">#fff0f0f0</color>
@@ -44,10 +48,10 @@
     <!-- RippleView start -->
     <color name="ripple_color">#FFFFFF</color>
     <!-- RippleView end -->
-    
+
     <color name="remote_connect_text">#FFe78018</color>
     <color name="remote_disconnect_text">#FF901821</color>
-    
+
     <!-- 通用圆角按钮 -->
     <color name="common_solid_btn_bg_n">#ff7107</color>
     <color name="common_solid_btn_bg_p">#e15800</color>
@@ -55,5 +59,5 @@
     <color name="common_hollow_btn_bg_p">#33ff7107</color>
     <color name="common_btn_bg_disabled">#dddddd</color>
     <color name="common_solid_btn_txt">@color/white</color>
-    
+
 </resources>

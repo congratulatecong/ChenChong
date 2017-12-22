@@ -73,7 +73,7 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("各种Tab");
         mAndroidKernelList.add(androidKernel);
-        androidKernel = new AndroidKernel("异步加载");
+        androidKernel = new AndroidKernel("列表批量操作");
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("各种UI");
         mAndroidKernelList.add(androidKernel);
@@ -185,7 +185,7 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
                 startActivity(intent);
                 break;
             case 11:
-                intent.setClass(this, AsyncTaskActivity.class);
+                intent.setClass(this, ListBatchProcessActivity.class);
                 intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
                 startActivity(intent);
                 break;

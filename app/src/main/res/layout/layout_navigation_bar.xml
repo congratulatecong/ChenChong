@@ -8,4 +8,5 @@
     android:background="@color/color_primary"
     android:minHeight="?attr/actionBarSize"
     app:navigationIcon="@drawable/btn_navigation_back"
+    app:theme="@style/ToolbarTheme"
     app:titleTextColor="@color/white"/>

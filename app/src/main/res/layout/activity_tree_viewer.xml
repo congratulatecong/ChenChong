@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:cacheColorHint="@color/transparent"
-        android:divider="@color/listview_divider"
+        android:divider="@color/list_divider"
         android:dividerHeight="1px"
         android:listSelector="@drawable/tree_viewer_listitem_bg"/>
 
