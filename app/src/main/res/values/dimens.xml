@@ -7,4 +7,6 @@
 
     <dimen name="font_toolbar_menu">16sp</dimen>
 
+    <dimen name="normal_space">20dp</dimen>
+
 </resources>

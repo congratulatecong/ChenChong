@@ -99,7 +99,7 @@ public class SensorActivity extends SlidingActivity {
                 y += 7.0f * event.values[1];
 
                 //越界处理
-                float normalSpace = 20;
+                float normalSpace = getResources().getDimension(R.dimen.normal_space);
                 if (x < -normalSpace) {
                     x = -normalSpace;
                 }
