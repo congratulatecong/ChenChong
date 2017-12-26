@@ -7,7 +7,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -18,9 +17,10 @@ import com.mobike.library.MobikeView;
 
 public class SensorActivity extends SlidingActivity {
 
-    private MobikeView viewImageTag;
     private SensorManager sensorManager;
     private Sensor defaultSensor;
+
+    private MobikeView viewImageTag;
     private View ivLeftEyeball, ivRightEyeball;
 
     private int[] imageTags = {
@@ -37,20 +37,20 @@ public class SensorActivity extends SlidingActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensor);
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        defaultSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
         viewImageTag = (MobikeView) findViewById(R.id.view_image_tag);
         ivLeftEyeball = findViewById(R.id.iv_left_eyeball);
         ivRightEyeball = findViewById(R.id.iv_right_eyeball);
 
-        initViews();
-
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        defaultSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        initImageTags();
     }
 
-    private void initViews() {
-        FrameLayout.LayoutParams layoutParams =
-                new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
-                        FrameLayout.LayoutParams.WRAP_CONTENT);
+    private void initImageTags() {
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
         layoutParams.gravity = Gravity.CENTER;
         for (int imageTag : imageTags) {
@@ -58,15 +58,6 @@ public class SensorActivity extends SlidingActivity {
             imageView.setImageResource(imageTag);
             viewImageTag.addView(imageView, layoutParams);
         }
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
