@@ -89,6 +89,8 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("有条鱼");
         mAndroidKernelList.add(androidKernel);
+        androidKernel = new AndroidKernel("传感器之小黄人大眼萌");
+        mAndroidKernelList.add(androidKernel);
     }
 
     private void initView() {
@@ -226,6 +228,11 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
                 intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
                 startActivity(intent);
                 break;
+            case 19:
+                intent.setClass(this, SensorActivity.class);
+                intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
+                startActivity(intent);
+                break;
 
             default:
                 break;
@@ -287,9 +294,6 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
     /**
      * 再按一次 退出程序
-     *
-     * @param event
-     * @return
      */
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {

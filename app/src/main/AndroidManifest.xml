@@ -73,12 +73,12 @@
         <activity android:name=".activity.FloatWindowActivity" />
         <activity android:name=".activity.RollingDownloadActivity" />
         <activity android:name=".activity.SmileAppraiseActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.FishActivity" />
+        <activity android:name=".activity.SensorActivity" />
 
         <service android:name=".wifi.manager.FTPServerService" />
         <service android:name=".floatwindow.FloatWindowService" />
-
-        <activity android:name=".activity.TestActivity" />
-        <activity android:name=".activity.FishActivity" />
     </application>
 
 </manifest>

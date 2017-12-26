@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.mobike.library.MobikeView
+        android:id="@+id/view_image_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="200dp"
+            android:background="@drawable/minions_face">
+
+            <ImageView
+                android:id="@+id/iv_left_eyeball"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="62dp"
+                android:layout_marginTop="65dp"
+                android:src="@drawable/minions_eyeball" />
+
+            <ImageView
+                android:id="@+id/iv_right_eyeball"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="42dp"
+                android:layout_marginTop="65dp"
+                android:src="@drawable/minions_eyeball" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/minions_glasses" />
+
+        </FrameLayout>
+    </com.mobike.library.MobikeView>
+
+</LinearLayout>
