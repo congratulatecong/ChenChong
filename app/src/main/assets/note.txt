@@ -1,6 +1,8 @@
 
 
 #2017
+《穿蓝花棉裤的小孩》(摘录)/袁劲梅
+《圣诞老板》
 《又寂寞又美好》(摘录)/几米
 《明明如月》/周云蓬
 《陶然亭的雪》/俞平伯
@@ -18,7 +20,6 @@
 《真相常流失于涕泪交加中》/柴静
 《回答》/北岛
 《房间里的大象》/刘瑜
-
 《我们的恐惧》/冬至
 《不说话的王国》/费西廷
 《我能想象的幸福生活》/邵夷贝
@@ -40,7 +41,6 @@
 《秋日》(摘录)/里尔克
 《天净沙·秋》/白朴
 《双调·夜行船·秋思》/马致远
-
 《孟德之恋》/逍遥哥哥
 《垓下之围》/司马迁
 《两个梦》/顾城
@@ -62,7 +62,6 @@
 《师说》/韩愈
 《老师：一种基础的职业》/梁文道
 《他们那时多有趣》/艾萨克·阿西莫夫
-
 《怀李叔同先生》/丰子恺
 《外婆信佛》/李娟
 《出离的真意》/宗萨
@@ -143,20 +142,18 @@
 《Love at First Sight》(摘录)/Wislawa Szymborska
 《花开花落终有时》/冯寅杰
 《霾困北京时》(摘录)/钱杨
-《》/
-《》/
-《》/
 
 
 
 --music--
+《再见杰克》/痛仰乐队
+《When Christmas Comes To Town》/Matthew Hall、Megan Moore
 《雪花》/城之内ミサ
 《城南花已开》/三亩地
 《风の歌》/広橋真紀子
 《分裂》/苏醒
 《The Riddle》/Cecile Corbel
 《I Am You》/Kim Taylor
-
 《Coincidance》/Handsome Dancer
 《ナイトサーカス》/V.A.
 《The Next Episode(Explicit)》(《独裁者》主题曲)/Aiwa、Mr Tibbz、Admiral General Aladeen
@@ -167,7 +164,6 @@
 《秋》/川井憲次
 《In My Secret Life》/Leonard Cohen
 《Baby ，До свидания》/朴树
-
 《旧梦惊尘》/素罗
 《往事》/孟庭苇
 《梦里梦外》/Jam
@@ -177,9 +173,8 @@
 《糖不甩》/薛凯琪
 《识食物者为俊杰》/冯提莫
 《春风十里》/鹿先森乐队
-《les choristes》/Les Petits Chanteurs de Saint-Marc
+《Les Choristes》/Les Petits Chanteurs de Saint-Marc
 《回向偈》/慧普法师
-
 《难念的经》(女版)/wispering
 《虔诚贡献颂》/祺云法师
 《空》/邓伟标
@@ -234,8 +229,6 @@
 《钟无艳》/群星
 《向左走 向右走》/梁咏琪
 《这么远 那么近》/张国荣、黄耀明
-《》/
-《》/
 
 # 2016
 
