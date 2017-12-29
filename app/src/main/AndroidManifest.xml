@@ -61,6 +61,7 @@
         <activity android:name=".activity.TreeViewerActivity" />
         <activity android:name=".activity.ListViewActivity" />
         <activity android:name=".activity.WaterDropActivity" />
+        <activity android:name=".activity.WaterDropDetailActivity" />
         <activity android:name=".activity.RobotActivity" />
         <activity android:name=".activity.TagFlowActivity" />
         <activity android:name=".activity.VerticalTabActivity" />

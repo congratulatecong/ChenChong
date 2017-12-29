@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.waterdrop.CoverManager;
-import com.cong.chenchong.waterdrop.DropCover.OnDragCompeteListener;
 import com.cong.chenchong.waterdrop.WaterDrop;
 
 public class WaterDropActivity extends SlidingActivity implements OnItemClickListener {
@@ -38,7 +37,7 @@ public class WaterDropActivity extends SlidingActivity implements OnItemClickLis
         CoverManager.getInstance().setExplosionTime(150);
     }
 
-    class DemoAdapter extends BaseAdapter {
+    private class DemoAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -68,13 +67,7 @@ public class WaterDropActivity extends SlidingActivity implements OnItemClickLis
             }
 
             holder.waterDrop.setText(String.valueOf(position));
-            holder.waterDrop.setOnDragCompeteListener(new OnDragCompeteListener() {
-
-                @Override
-                public void onDrag() {
-                    Toast.makeText(WaterDropActivity.this, "消除：" + position, Toast.LENGTH_SHORT).show();
-                }
-            });
+            holder.waterDrop.setOnDragCompeteListener(() -> Toast.makeText(WaterDropActivity.this, "消除：" + position, Toast.LENGTH_SHORT).show());
 
             return convertView;
         }
@@ -84,10 +77,9 @@ public class WaterDropActivity extends SlidingActivity implements OnItemClickLis
         }
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(WaterDropActivity.this, "点击：" + position, Toast.LENGTH_SHORT).show();
+        WaterDropDetailActivity.startActivity(this, "Transition Test", view.findViewById(R.id.iv_picture));
     }
 
 }

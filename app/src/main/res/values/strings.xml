@@ -40,4 +40,6 @@
 
     <string name="selected_count">已选择%d项</string>
 
+    <string name="transition_name_picture">transition_name_picture</string>
+
 </resources>

@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="10dp" >
+    android:padding="10dp">
 
     <com.cong.chenchong.widget.CircleImageView
+        android:id="@+id/iv_picture"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/img_elastic_refresh"
@@ -17,14 +18,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,7 +48,7 @@
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="match_parent"

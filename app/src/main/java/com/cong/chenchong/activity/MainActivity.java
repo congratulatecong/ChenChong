@@ -65,7 +65,7 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("RippleEffect");
         mAndroidKernelList.add(androidKernel);
-        androidKernel = new AndroidKernel("消除未读");
+        androidKernel = new AndroidKernel("消除未读_SceneTransitionAnimation");
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("图灵机器人");
         mAndroidKernelList.add(androidKernel);
