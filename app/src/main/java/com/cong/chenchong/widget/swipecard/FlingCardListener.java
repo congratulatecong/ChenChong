@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
+import com.cong.chenchong.global.Debug;
+
 public class FlingCardListener implements View.OnTouchListener {
 
     private static final String TAG = FlingCardListener.class.getSimpleName();
@@ -34,20 +36,17 @@ public class FlingCardListener implements View.OnTouchListener {
     private int mActivePointerId = INVALID_POINTER_ID;
     private View frame = null;
 
-
     private final int TOUCH_ABOVE = 0;
     private final int TOUCH_BELOW = 1;
     private int touchPosition;
-    private final Object obj = new Object();
     private boolean isAnimationRunning = false;
     private float MAX_COS = (float) Math.cos(Math.toRadians(45));
-
 
     public FlingCardListener(View frame, Object itemAtPosition, FlingListener flingListener) {
         this(frame, itemAtPosition, 15f, flingListener);
     }
 
-    public FlingCardListener(View frame, Object itemAtPosition, float rotation_degrees, FlingListener flingListener) {
+    FlingCardListener(View frame, Object itemAtPosition, float rotation_degrees, FlingListener flingListener) {
         super();
         this.frame = frame;
         this.objectX = frame.getX();
@@ -59,9 +58,7 @@ public class FlingCardListener implements View.OnTouchListener {
         this.parentWidth = ((ViewGroup) frame.getParent()).getWidth();
         this.BASE_ROTATION_DEGREES = rotation_degrees;
         this.mFlingListener = flingListener;
-
     }
-
 
     public boolean onTouch(View view, MotionEvent event) {
 
@@ -70,7 +67,6 @@ public class FlingCardListener implements View.OnTouchListener {
 
                 // from http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html
                 // Save the ID of this pointer
-
                 mActivePointerId = event.getPointerId(0);
                 float x = 0;
                 float y = 0;
@@ -80,7 +76,8 @@ public class FlingCardListener implements View.OnTouchListener {
                     y = event.getY(mActivePointerId);
                     success = true;
                 } catch (IllegalArgumentException e) {
-                    Log.w(TAG, "Exception in onTouch(view, event) : " + mActivePointerId, e);
+                    if (Debug.enable)
+                        Log.w(TAG, "Exception in onTouch(view, event) : " + mActivePointerId, e);
                 }
                 if (success) {
                     // Remember where we started
@@ -129,7 +126,6 @@ public class FlingCardListener implements View.OnTouchListener {
                 break;
             case MotionEvent.ACTION_MOVE:
 
-//                Log.e("move", "move......");
                 // Find the index of the active pointer and fetch its position
                 final int pointerIndexMove = event.findPointerIndex(mActivePointerId);
                 final float xMove = event.getX(pointerIndexMove);
@@ -144,7 +140,6 @@ public class FlingCardListener implements View.OnTouchListener {
                 // Move the frame
                 aPosX += dx;
                 aPosY += dy;
-//                Log.e("x,y", aPosX + "," + aPosY);
 
                 // calculate the rotation degrees
                 float distobjectX = aPosX - objectX;
@@ -201,25 +196,9 @@ public class FlingCardListener implements View.OnTouchListener {
             aPosY = 0;
             aDownTouchX = 0;
             aDownTouchY = 0;
-            Log.e("v",frame.getX()+"");
             frame.animate()
                     .setDuration(200)
                     .setInterpolator(new OvershootInterpolator(1.5f))
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationRepeat(Animator animation) {
-                            super.onAnimationRepeat(animation);
-                            Log.e("v",frame.getX()+"");
-                            Log.e("v",frame.getX()+"");
-                            Log.e("v",frame.getX()+"");
-                        }
-
-                        @Override
-                        public void onAnimationPause(Animator animation) {
-                            super.onAnimationPause(animation);
-                            Log.e("v",frame.getX()+"");
-                        }
-                    })
                     .x(objectX)
                     .y(objectY)
                     .rotation(0);
@@ -249,9 +228,7 @@ public class FlingCardListener implements View.OnTouchListener {
     }
 
 
-    public void onSelected(final boolean isLeft,
-                           float exitY, long duration) {
-
+    public void onSelected(final boolean isLeft, float exitY, long duration) {
         isAnimationRunning = true;
         float exitX;
         if (isLeft) {
@@ -324,7 +301,6 @@ public class FlingCardListener implements View.OnTouchListener {
         }
         return rotation;
     }
-
 
     /**
      * When the object rotates it's width becomes bigger.

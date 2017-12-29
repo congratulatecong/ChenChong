@@ -1,15 +1,14 @@
 package com.cong.chenchong.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
-import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.adapter.CardAdapter;
 import com.cong.chenchong.bean.Girl;
+import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.widget.swipecard.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -97,12 +96,12 @@ public class SwipeCardActivity extends SlidingActivity {
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                makeToast(SwipeCardActivity.this, "不喜欢");
+                makeToast("不喜欢");
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                makeToast(SwipeCardActivity.this, "喜欢");
+                makeToast("喜欢");
             }
 
             @Override
@@ -123,7 +122,7 @@ public class SwipeCardActivity extends SlidingActivity {
             }
         });
 
-        viewSwipeCard.setOnItemClickListener((itemPosition, dataObject) -> makeToast(this, "点击图片：" + itemPosition));
+        viewSwipeCard.setOnItemClickListener((itemPosition, dataObject) -> makeToast("点击图片：" + itemPosition));
     }
 
     public void dislike() {
@@ -134,8 +133,8 @@ public class SwipeCardActivity extends SlidingActivity {
         viewSwipeCard.getTopCardListener().selectRight();
     }
 
-    static void makeToast(Context ctx, String s) {
-        Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
+    private void makeToast(String s) {
+        Toast.makeText(SwipeCardActivity.this, s, Toast.LENGTH_SHORT).show();
     }
 
     public final int[] photos = new int[]{
