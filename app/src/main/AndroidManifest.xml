@@ -78,6 +78,7 @@
         <activity android:name=".activity.FishActivity" />
         <activity android:name=".activity.SensorActivity" />
         <activity android:name=".activity.SwipeCardActivity" />
+        <activity android:name=".activity.SupportActivity" />
 
         <service android:name=".wifi.manager.FTPServerService" />
         <service android:name=".floatwindow.FloatWindowService" />

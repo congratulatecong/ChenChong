@@ -93,6 +93,8 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
         mAndroidKernelList.add(androidKernel);
         androidKernel = new AndroidKernel("facebook物种起源");
         mAndroidKernelList.add(androidKernel);
+        androidKernel = new AndroidKernel("点赞动画集");
+        mAndroidKernelList.add(androidKernel);
     }
 
     private void initView() {
@@ -237,6 +239,11 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
                 break;
             case 20:
                 intent.setClass(this, SwipeCardActivity.class);
+                intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
+                startActivity(intent);
+                break;
+            case 21:
+                intent.setClass(this, SupportActivity.class);
                 intent.putExtra("title", mAndroidKernelList.get(position).getTitle());
                 startActivity(intent);
                 break;
