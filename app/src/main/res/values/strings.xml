@@ -42,4 +42,7 @@
 
     <string name="transition_name_picture">transition_name_picture</string>
 
+    <string name="action_sheet_dialog_item1">Item1</string>
+    <string name="action_sheet_dialog_item2">Item2</string>
+    <string name="action_sheet_dialog_item3">Item3</string>
 </resources>

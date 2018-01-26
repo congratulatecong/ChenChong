@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:clickable="false"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:textSize="14sp" />
+
+    <View
+        android:id="@+id/view_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/common_divider_line" />
+
+    <LinearLayout
+        android:id="@+id/layout_option_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/common_divider_line" />
+
+    <TextView
+        android:id="@+id/tv_cancel_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_sheet_item_h"
+        android:background="@drawable/bg_list_item"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+
+</LinearLayout>

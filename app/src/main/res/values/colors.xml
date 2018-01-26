@@ -60,4 +60,6 @@
     <color name="common_btn_bg_disabled">#dddddd</color>
     <color name="common_solid_btn_txt">@color/white</color>
 
+    <color name="common_divider_line">#E5E5EA</color>
+
 </resources>

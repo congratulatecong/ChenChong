@@ -1,19 +1,23 @@
 
 package com.cong.chenchong.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.cong.chenchong.R;
-import com.cong.chenchong.dialog.Effectstype;
-import com.cong.chenchong.dialog.NiftyDialogBuilder;
+import com.cong.chenchong.dialog.ActionSheetDialog;
 import com.cong.chenchong.global.SlidingActivity;
 
-public class DialogActivity extends SlidingActivity {
+public class DialogActivity extends SlidingActivity implements OnClickListener {
 
-    private Effectstype effect;
+    private Button btnEffectDialog;
+    private Button btnActionSheetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,80 +28,39 @@ public class DialogActivity extends SlidingActivity {
         toolbar.setTitle(getIntent().getStringExtra("title"));
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
+        btnEffectDialog = (Button) findViewById(R.id.btn_effect_dialog);
+        btnEffectDialog.setOnClickListener(this);
+        btnActionSheetDialog = (Button) findViewById(R.id.btn_action_sheet_dialog);
+        btnActionSheetDialog.setOnClickListener(this);
     }
 
-    public void dialogShow(View v) {
-        final NiftyDialogBuilder dialogBuilder = NiftyDialogBuilder.getInstance(this);
+    @Override
+    public void onClick(View v) {
 
+        Intent intent = new Intent();
         switch (v.getId()) {
-            case R.id.fadein:
-                effect = Effectstype.Fadein;
+            case R.id.btn_effect_dialog:
+                intent.setClass(this, EffectDialogActivity.class);
+                intent.putExtra("title", btnEffectDialog.getText().toString());
+                startActivity(intent);
                 break;
-            case R.id.slideright:
-                effect = Effectstype.Slideright;
+
+            case R.id.btn_action_sheet_dialog:
+                ActionSheetDialog.Builder builder = new ActionSheetDialog.Builder(this);
+                builder.setTitle(btnActionSheetDialog.getText().toString(),
+                        ContextCompat.getColor(this, android.R.color.black))
+                        .addOption(R.string.action_sheet_dialog_item1, android.R.color.holo_red_light, () ->
+                                Toast.makeText(this, "Item1", Toast.LENGTH_SHORT).show())
+                        .addOption(R.string.action_sheet_dialog_item2, android.R.color.holo_orange_light, () ->
+                                Toast.makeText(this, "Item2", Toast.LENGTH_SHORT).show())
+                        .addOption(R.string.action_sheet_dialog_item3, android.R.color.holo_blue_light, () ->
+                                Toast.makeText(this, "Item3", Toast.LENGTH_SHORT).show())
+                        .setDialogDismissListener(() -> Toast.makeText(this, "dialog dismiss", Toast.LENGTH_SHORT).show())
+                        .create().show();
                 break;
-            case R.id.slideleft:
-                effect = Effectstype.Slideleft;
-                break;
-            case R.id.slidetop:
-                effect = Effectstype.Slidetop;
-                break;
-            case R.id.slideBottom:
-                effect = Effectstype.SlideBottom;
-                break;
-            case R.id.newspager:
-                effect = Effectstype.Newspager;
-                break;
-            case R.id.fall:
-                effect = Effectstype.Fall;
-                break;
-            case R.id.sidefall:
-                effect = Effectstype.Sidefill;
-                break;
-            case R.id.fliph:
-                effect = Effectstype.Fliph;
-                break;
-            case R.id.flipv:
-                effect = Effectstype.Flipv;
-                break;
-            case R.id.rotatebottom:
-                effect = Effectstype.RotateBottom;
-                break;
-            case R.id.rotateleft:
-                effect = Effectstype.RotateLeft;
-                break;
-            case R.id.slit:
-                effect = Effectstype.Slit;
-                break;
-            case R.id.shake:
-                effect = Effectstype.Shake;
+
+            default:
                 break;
         }
-
-        dialogBuilder.withTitle("Custom Dialog")
-                .withTitleColor("#FFFFFF")
-                .withDividerColor("#11000000")
-                .withMessage("This is a custom dialog.")
-                .withMessageColor("#FFFFFF")
-                .withIcon(getResources().getDrawable(R.drawable.icon_github))
-                .isCanceledOnTouchOutside(true)
-                .withDuration(800)
-                .withEffect(effect)
-                .withButton1Text("OK")
-                .withButton2Text("Cancel")
-                .setCustomView(R.layout.custom_view, v.getContext())
-                .setButton1Click(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(v.getContext(), "I'm btn1", Toast.LENGTH_SHORT).show();
-                    }
-                }).setButton2Click(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "I'm btn2", Toast.LENGTH_SHORT).show();
-                dialogBuilder.dismiss();
-            }
-        }).show();
-
     }
 }

@@ -56,6 +56,7 @@
         <activity android:name=".activity.ToolActivity" />
         <activity android:name=".activity.CaptureActivity" />
         <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.EffectDialogActivity" />
         <activity android:name=".activity.RippleActivity" />
         <activity android:name=".activity.WiFiActivity" />
         <activity android:name=".activity.TreeViewerActivity" />

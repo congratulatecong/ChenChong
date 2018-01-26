@@ -9,4 +9,6 @@
 
     <dimen name="normal_space">20dp</dimen>
 
+    <dimen name="action_sheet_item_h">48dp</dimen>
+
 </resources>
