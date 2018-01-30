@@ -12,12 +12,14 @@ import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.dialog.ActionSheetDialog;
+import com.cong.chenchong.dialog.OverflowPopupWindow;
 import com.cong.chenchong.global.SlidingActivity;
 
 public class DialogActivity extends SlidingActivity implements OnClickListener {
 
     private Button btnEffectDialog;
     private Button btnActionSheetDialog;
+    private Button btnPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class DialogActivity extends SlidingActivity implements OnClickListener {
         btnEffectDialog.setOnClickListener(this);
         btnActionSheetDialog = (Button) findViewById(R.id.btn_action_sheet_dialog);
         btnActionSheetDialog.setOnClickListener(this);
+        btnPopupWindow = (Button) findViewById(R.id.btn_popup_window);
+        btnPopupWindow.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +62,11 @@ public class DialogActivity extends SlidingActivity implements OnClickListener {
                         .setDialogDismissListener(() -> Toast.makeText(this, "dialog dismiss", Toast.LENGTH_SHORT).show())
                         .create().show();
                 break;
+            case R.id.btn_popup_window:
+                OverflowPopupWindow.PopupWindowBuilder.getInstance()
+                        .setMenuItemText("Popup Window")
+                        .setOnOperateClickListener(view -> Toast.makeText(this, "popup window", Toast.LENGTH_SHORT).show())
+                        .show(btnPopupWindow);
 
             default:
                 break;

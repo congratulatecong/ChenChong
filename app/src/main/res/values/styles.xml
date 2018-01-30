@@ -119,4 +119,9 @@
         <item name="android:windowExitAnimation">@anim/action_sheet_dialog_exit</item>
     </style>
 
+    <style name="PopupWindowAnim">
+        <item name="android:windowEnterAnimation">@anim/popup_window_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_window_out</item>
+    </style>
+
 </resources>

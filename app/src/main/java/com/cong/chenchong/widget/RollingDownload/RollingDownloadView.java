@@ -17,7 +17,6 @@ import android.view.animation.Transformation;
 
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.SizeUtils;
-import com.blankj.utilcode.util.Utils;
 import com.cong.chenchong.R;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.ValueAnimator;
@@ -550,19 +549,16 @@ public class RollingDownloadView extends View {
 
     private int getScreenWidth() {
 //        return getResources().getDisplayMetrics().widthPixels;
-        Utils.init(getContext());
         return ScreenUtils.getScreenWidth();
     }
 
     private int dp2px(float value) {
 //        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
-        Utils.init(getContext());
         return SizeUtils.dp2px(value);
     }
 
     private int sp2px(int value) {
 //        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, value, getResources().getDisplayMetrics());
-        Utils.init(getContext());
         return SizeUtils.sp2px(value);
     }
 
