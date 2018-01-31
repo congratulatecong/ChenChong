@@ -4,10 +4,10 @@ package com.cong.chenchong.ui;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 
 public class CommonWidgetActivity extends SlidingActivity {
     @Override
@@ -20,8 +20,6 @@ public class CommonWidgetActivity extends SlidingActivity {
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         View btn = findViewById(R.id.btn_ui_0);
-        btn.setOnClickListener(v -> {
-            Toast.makeText(CommonWidgetActivity.this, "clicked", Toast.LENGTH_SHORT).show();
-        });
+        btn.setOnClickListener(v -> ToastHelper.toast("clicked"));
     }
 }

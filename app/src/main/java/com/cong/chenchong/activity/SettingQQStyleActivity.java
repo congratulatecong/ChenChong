@@ -1,10 +1,10 @@
 package com.cong.chenchong.activity;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 import com.dtr.settingview.lib.SettingButton;
 import com.dtr.settingview.lib.SettingButton.onSettingButtonClickListener;
 import com.dtr.settingview.lib.SettingButton.onSettingButtonSwitchListener;
@@ -57,9 +57,9 @@ public class SettingQQStyleActivity extends SlidingActivity {
 			@Override
 			public void onSwitchChanged(boolean isChecked) {
 				if (isChecked) {
-					Toast.makeText(SettingQQStyleActivity.this, "接收消息开启", Toast.LENGTH_SHORT).show();
+					ToastHelper.toast("接收消息开启");
 				} else {
-					Toast.makeText(SettingQQStyleActivity.this, "接受消息关闭", Toast.LENGTH_SHORT).show();
+					ToastHelper.toast("接受消息关闭");
 				}
 			}
 		});

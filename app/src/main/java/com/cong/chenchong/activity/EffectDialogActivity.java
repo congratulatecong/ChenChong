@@ -10,6 +10,7 @@ import com.cong.chenchong.R;
 import com.cong.chenchong.dialog.Effectstype;
 import com.cong.chenchong.dialog.NiftyDialogBuilder;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 
 public class EffectDialogActivity extends SlidingActivity {
 
@@ -86,18 +87,11 @@ public class EffectDialogActivity extends SlidingActivity {
                 .withButton1Text("OK")
                 .withButton2Text("Cancel")
                 .setCustomView(R.layout.custom_view, v.getContext())
-                .setButton1Click(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(v.getContext(), "I'm btn1", Toast.LENGTH_SHORT).show();
-                    }
-                }).setButton2Click(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "I'm btn2", Toast.LENGTH_SHORT).show();
-                dialogBuilder.dismiss();
-            }
-        }).show();
+                .setButton1Click(v1 -> ToastHelper.toast("I'm btn1"))
+                .setButton2Click(v12 -> {
+                    ToastHelper.toast("I'm btn2");
+                    dialogBuilder.dismiss();
+                }).show();
 
     }
 }

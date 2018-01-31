@@ -16,16 +16,15 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 import com.cong.chenchong.wifi.manager.Defaults;
 import com.cong.chenchong.wifi.manager.FTPServerService;
 import com.cong.chenchong.wifi.manager.Globals;
@@ -266,9 +265,7 @@ public class WiFiActivity extends SlidingActivity {
         String storageState = Environment.getExternalStorageState();
         if (!storageState.equals(Environment.MEDIA_MOUNTED)) {
             // myLog.i("Warning due to storage state " + storageState);
-            Toast toast = Toast.makeText(mActivity, R.string.storage_warning, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            ToastHelper.toast(R.string.storage_warning);
         }
     }
 

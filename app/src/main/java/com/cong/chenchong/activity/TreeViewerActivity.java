@@ -9,13 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.adapter.SimpleTreeListViewAdapter;
 import com.cong.chenchong.bean.FileBean;
 import com.cong.chenchong.bean.OrgBean;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class TreeViewerActivity extends SlidingActivity {
     private void initEvent() {
         mAdapter.setOnTreeNodeClickListener((node, position) -> {
             if (node.isLeaf()) {
-                Toast.makeText(TreeViewerActivity.this, node.getName(), Toast.LENGTH_SHORT).show();
+                ToastHelper.toast(node.getName());
             }
         });
 

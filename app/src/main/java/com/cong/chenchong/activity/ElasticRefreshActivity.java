@@ -3,10 +3,10 @@ package com.cong.chenchong.activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 import com.cong.chenchong.widget.ElasticScrollView;
 import com.cong.chenchong.widget.ElasticScrollView.OverScrollListener;
 import com.cong.chenchong.widget.ElasticScrollView.OverScrollTinyListener;
@@ -61,7 +61,7 @@ public class ElasticRefreshActivity extends SlidingActivity implements OverScrol
     }
 
     public void headerScroll() {
-        Toast.makeText(getApplicationContext(), "开始刷新", Toast.LENGTH_SHORT).show();
+        ToastHelper.toast("开始刷新");
 
         // 处理下拉超过一定临界值时 的回调
     }

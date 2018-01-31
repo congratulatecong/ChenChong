@@ -36,7 +36,6 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.cong.chenchong.R;
@@ -50,6 +49,7 @@ import com.cong.chenchong.robot.ChatMessage.Type;
 import com.cong.chenchong.robot.ChatMessageAdapter;
 import com.cong.chenchong.robot.HttpUtils;
 import com.cong.chenchong.util.EmojiUtils;
+import com.cong.chenchong.util.ToastHelper;
 import com.cong.chenchong.util.Utils;
 import com.cong.chenchong.widget.BottomQuickAction;
 import com.cong.chenchong.widget.BottomQuickAction.BottomItem;
@@ -747,7 +747,7 @@ public class RobotActivity extends SlidingActivity implements OnClickListener {
             if (mTxtSize > TxtSizeMax) {
                 mTxtSize = TxtSizeMax;
                 if (!fontSizeMaxWarnShown) {
-                    Toast.makeText(this, R.string.max_font_size, Toast.LENGTH_SHORT).show();
+                    ToastHelper.toast(R.string.max_font_size);
                     fontSizeMaxWarnShown = true;
                 }
             }
@@ -756,7 +756,7 @@ public class RobotActivity extends SlidingActivity implements OnClickListener {
             if (mTxtSize < TxtSizeMin) {
                 mTxtSize = TxtSizeMin;
                 if (!fontSizeMinWarnShown) {
-                    Toast.makeText(this, R.string.min_font_size, Toast.LENGTH_SHORT).show();
+                    ToastHelper.toast(R.string.min_font_size);
                     fontSizeMinWarnShown = true;
                 }
             }
@@ -792,7 +792,7 @@ public class RobotActivity extends SlidingActivity implements OnClickListener {
             case R.id.btn_right_top:
                 final String toMsg = mEtInputMsg.getText().toString();
                 if (TextUtils.isEmpty(toMsg)) {
-                    Toast.makeText(RobotActivity.this, "输入内容不能为空！", Toast.LENGTH_SHORT).show();
+                    ToastHelper.toast("输入内容不能为空！");
                     return;
                 }
                 mEtInputMsg.setText("");

@@ -3,12 +3,12 @@ package com.cong.chenchong.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.adapter.CardAdapter;
 import com.cong.chenchong.bean.Girl;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 import com.cong.chenchong.widget.swipecard.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -134,7 +134,7 @@ public class SwipeCardActivity extends SlidingActivity {
     }
 
     private void makeToast(String s) {
-        Toast.makeText(SwipeCardActivity.this, s, Toast.LENGTH_SHORT).show();
+        ToastHelper.toast(s);
     }
 
     public final int[] photos = new int[]{

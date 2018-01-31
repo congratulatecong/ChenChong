@@ -16,7 +16,6 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.capture.CameraManager;
@@ -25,6 +24,7 @@ import com.cong.chenchong.capture.InactivityTimer;
 import com.cong.chenchong.capture.ViewfinderView;
 import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.util.ContextUtils;
+import com.cong.chenchong.util.ToastHelper;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
@@ -141,7 +141,7 @@ public class CaptureActivity extends SlidingActivity implements Callback, OnClic
      */
     private void onResultHandler(String resultString, Bitmap bitmap) {
         if (TextUtils.isEmpty(resultString)) {
-            Toast.makeText(CaptureActivity.this, R.string.scan_failed, Toast.LENGTH_SHORT).show();
+            ToastHelper.toast(R.string.scan_failed);
             return;
         }
 

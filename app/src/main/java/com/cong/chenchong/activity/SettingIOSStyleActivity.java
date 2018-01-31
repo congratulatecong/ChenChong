@@ -1,10 +1,10 @@
 package com.cong.chenchong.activity;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 import com.dtr.settingview.lib.SettingView;
 import com.dtr.settingview.lib.SettingView.onSettingViewItemClickListener;
 import com.dtr.settingview.lib.SettingView.onSettingViewItemSwitchListener;
@@ -37,7 +37,7 @@ public class SettingIOSStyleActivity extends SlidingActivity {
 
 			@Override
 			public void onItemClick(int index) {
-				Toast.makeText(SettingIOSStyleActivity.this, "第" + index + "项被点击", Toast.LENGTH_SHORT).show();
+                ToastHelper.toast("第" + index + "项被点击");
 				if (index == 4) {
 					mSettingView1.modifySubTitle("中国联通", index);
 				} else if (index == 2) {
@@ -51,9 +51,9 @@ public class SettingIOSStyleActivity extends SlidingActivity {
 			@Override
 			public void onSwitchChanged(int index, boolean isChecked) {
 				if (isChecked) {
-					Toast.makeText(SettingIOSStyleActivity.this, "第" + index + "项打开", Toast.LENGTH_SHORT).show();
+                    ToastHelper.toast("第" + index + "项打开");
 				} else {
-					Toast.makeText(SettingIOSStyleActivity.this, "第" + index + "项关闭", Toast.LENGTH_SHORT).show();
+                    ToastHelper.toast("第" + index + "项关闭");
 				}
 			}
 		});

@@ -6,12 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
 import com.cong.chenchong.util.BlurUtil;
 import com.cong.chenchong.util.FastBlur;
+import com.cong.chenchong.util.ToastHelper;
 
 public class PhotoBlurActivity extends SlidingActivity implements OnClickListener {
     @Override
@@ -31,7 +31,7 @@ public class PhotoBlurActivity extends SlidingActivity implements OnClickListene
 //        ivBlur.setImageResource(R.drawable.image_girl);
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "cc Exception", Toast.LENGTH_SHORT).show();
+            ToastHelper.toast("cc Exception");
             ivBlur.setImageResource(R.drawable.image_girl);
         }
         ivBlur.setOnClickListener(this);
@@ -41,7 +41,7 @@ public class PhotoBlurActivity extends SlidingActivity implements OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_blur:
-                Toast.makeText(this, "cc blur", Toast.LENGTH_SHORT).show();
+                ToastHelper.toast("cc blur");
                 break;
 
             default:

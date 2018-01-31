@@ -5,10 +5,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.global.SlidingActivity;
+import com.cong.chenchong.util.ToastHelper;
 import com.cong.chenchong.widget.RippleView;
 
 public class RippleActivity extends SlidingActivity implements OnClickListener {
@@ -33,10 +33,10 @@ public class RippleActivity extends SlidingActivity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_ripple:
-                Toast.makeText(this, "RippleEffect", Toast.LENGTH_SHORT).show();
+                ToastHelper.toast("RippleEffect");
                 break;
             case R.id.layout_ripple:
-                Toast.makeText(this, "RippleEffect", Toast.LENGTH_SHORT).show();
+                ToastHelper.toast("RippleEffect");
                 break;
 
             default:

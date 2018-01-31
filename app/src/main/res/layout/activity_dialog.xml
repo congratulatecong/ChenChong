@@ -15,6 +15,7 @@
         android:layout_marginTop="20dp"
         android:padding="16dp"
         android:text="All Effect Dialog"
+        android:textAllCaps="false"
         android:textSize="16sp" />
 
     <Button
@@ -25,6 +26,7 @@
         android:layout_marginTop="20dp"
         android:padding="16dp"
         android:text="Action Sheet Dialog"
+        android:textAllCaps="false"
         android:textSize="16sp" />
 
     <Button
@@ -35,6 +37,7 @@
         android:layout_marginTop="20dp"
         android:padding="16dp"
         android:text="Popup Window"
+        android:textAllCaps="false"
         android:textSize="16sp" />
 
 </LinearLayout>
