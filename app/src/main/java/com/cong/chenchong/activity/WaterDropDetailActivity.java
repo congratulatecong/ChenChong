@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -14,10 +15,12 @@ import com.cong.chenchong.global.SlidingActivity;
 public class WaterDropDetailActivity extends SlidingActivity {
     private static final String EXTRA_TITLE = "extra_title";
 
-    public static void startActivity(Activity activity, String title, View view) {
+    public static void startActivity(Activity activity, String title, View viewTransition, View viewBackground) {
         Intent intent = new Intent(activity, WaterDropDetailActivity.class);
         intent.putExtra(EXTRA_TITLE, title);
-        ActivityOptionsCompat option = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, view, "transition_name_picture");
+        ActivityOptionsCompat option = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,
+                Pair.create(viewBackground, activity.getString(R.string.transition_name_picture)),
+                Pair.create(viewTransition, activity.getString(R.string.transition_name_background)));
         activity.startActivity(intent, option.toBundle());
     }
 

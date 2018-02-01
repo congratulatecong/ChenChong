@@ -49,7 +49,6 @@ public class DialogActivity extends SlidingActivity implements OnClickListener {
                 intent.putExtra("title", btnEffectDialog.getText().toString());
                 startActivity(intent);
                 break;
-
             case R.id.btn_action_sheet_dialog:
                 ActionSheetDialog.Builder builder = new ActionSheetDialog.Builder(this);
                 builder.setTitle(btnActionSheetDialog.getText().toString(),

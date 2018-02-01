@@ -2,19 +2,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bg"
     android:orientation="vertical">
 
     <include layout="@layout/layout_navigation_bar" />
 
-    <com.cong.chenchong.widget.CircleImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/img_elastic_refresh"
-        android:transitionName="@string/transition_name_picture"
-        app:border_color="#cccccccc"
-        app:border_width="2dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg"
+        android:transitionName="@string/transition_name_background">
+
+        <com.cong.chenchong.widget.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/img_elastic_refresh"
+            android:transitionName="@string/transition_name_picture"
+            app:border_color="#cccccccc"
+            app:border_width="2dp" />
+    </FrameLayout>
 
 </LinearLayout>

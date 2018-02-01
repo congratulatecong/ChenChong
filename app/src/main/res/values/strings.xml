@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="transition_name_picture">transition_name_picture</string>
+    <string name="transition_name_background">transition_name_background</string>
+
     <string name="app_name">陈冲冲冲</string>
     <string name="action_settings">设置</string>
     <string name="main_title">ANDROID</string>
@@ -39,8 +42,6 @@
     <string name="learner_num">已学人数：%s</string>
 
     <string name="selected_count">已选择%d项</string>
-
-    <string name="transition_name_picture">transition_name_picture</string>
 
     <string name="action_sheet_dialog_item1">Item1</string>
     <string name="action_sheet_dialog_item2">Item2</string>

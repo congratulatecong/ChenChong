@@ -79,7 +79,7 @@ public class WaterDropActivity extends SlidingActivity implements OnItemClickLis
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        WaterDropDetailActivity.startActivity(this, "Transition Test", view.findViewById(R.id.iv_picture));
+        WaterDropDetailActivity.startActivity(this, "Transition Test", view, view.findViewById(R.id.iv_picture));
     }
 
 }
