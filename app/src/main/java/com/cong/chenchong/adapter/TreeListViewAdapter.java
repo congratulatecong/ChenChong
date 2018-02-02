@@ -1,18 +1,16 @@
 package com.cong.chenchong.adapter;
 
-import java.util.List;
-
-import com.cong.chenchong.util.Node;
-import com.cong.chenchong.util.TreeHelper;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+
+import com.cong.chenchong.util.Node;
+import com.cong.chenchong.util.TreeHelper;
+
+import java.util.List;
 
 public abstract class TreeListViewAdapter<T> extends BaseAdapter
 {
@@ -52,22 +50,15 @@ public abstract class TreeListViewAdapter<T> extends BaseAdapter
 
 		mTree = tree;
 
-		mTree.setOnItemClickListener(new OnItemClickListener()
-		{
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id)
-			{
-				expandOrCollapse(position);
+		mTree.setOnItemClickListener((parent, view, position, id) -> {
+            expandOrCollapse(position);
 
-				if (mListener != null)
-				{
-					mListener.onClick(mVisibleNodes.get(position), position);
-				}
+            if (mListener != null)
+            {
+                mListener.onClick(mVisibleNodes.get(position), position);
+            }
 
-			}
-
-		});
+        });
 
 	}
 

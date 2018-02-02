@@ -1,18 +1,18 @@
 
 package com.cong.chenchong.adapter;
 
-import java.util.List;
-
-import com.cong.chenchong.R;
-import com.cong.chenchong.util.Node;
-import com.cong.chenchong.util.TreeHelper;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.cong.chenchong.R;
+import com.cong.chenchong.util.Node;
+import com.cong.chenchong.util.TreeHelper;
+
+import java.util.List;
 
 public class SimpleTreeListViewAdapter<T> extends TreeListViewAdapter<T> {
     public SimpleTreeListViewAdapter(ListView tree, Context context, List<T> datas, int defaultExpandLevel) throws IllegalArgumentException, IllegalAccessException {
@@ -21,7 +21,7 @@ public class SimpleTreeListViewAdapter<T> extends TreeListViewAdapter<T> {
 
     @Override
     public View getConvertView(Node node, int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_item_tree_viewer, parent, false);
             holder = new ViewHolder();

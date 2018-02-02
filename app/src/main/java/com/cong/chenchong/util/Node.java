@@ -35,7 +35,7 @@ public class Node
 	private int icon;
 
 	private Node parent;
-	private List<Node> children = new ArrayList<Node>();
+	private List<Node> children = new ArrayList<>();
 
 	public int getId()
 	{

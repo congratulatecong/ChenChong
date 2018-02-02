@@ -1,10 +1,8 @@
 
 package com.cong.chenchong.activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.widget.EditText;
@@ -61,16 +59,17 @@ public class TreeViewerActivity extends SlidingActivity {
         mListViewTreeViewer.setOnItemLongClickListener((parent, view, position, id) -> {
             // DialogFragment
             final EditText et = new EditText(TreeViewerActivity.this);
-            new AlertDialog.Builder(TreeViewerActivity.this).setTitle("添加节点").setView(et).setPositiveButton("确定", new OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                    if (TextUtils.isEmpty(et.getText().toString())) {
-                        return;
-                    }
-                    mAdapter.addExtraNode(position, et.getText().toString());
-                }
-            }).setNegativeButton("取消", null).show();
+            new AlertDialog.Builder(TreeViewerActivity.this)
+                    .setTitle("添加节点")
+                    .setView(et)
+                    .setPositiveButton("确定", (dialog, which) -> {
+                        if (TextUtils.isEmpty(et.getText().toString())) {
+                            return;
+                        }
+                        mAdapter.addExtraNode(position, et.getText().toString());
+                    })
+                    .setNegativeButton("取消", null)
+                    .show();
 
             return true;
         });
