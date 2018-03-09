@@ -50,7 +50,7 @@ import com.cong.chenchong.robot.ChatMessageAdapter;
 import com.cong.chenchong.robot.HttpUtils;
 import com.cong.chenchong.util.EmojiUtils;
 import com.cong.chenchong.util.ToastHelper;
-import com.cong.chenchong.util.Utils;
+import com.cong.chenchong.util.CommonUtil;
 import com.cong.chenchong.widget.BottomQuickAction;
 import com.cong.chenchong.widget.BottomQuickAction.BottomItem;
 import com.cong.chenchong.widget.EditTextBase;
@@ -606,7 +606,7 @@ public class RobotActivity extends SlidingActivity implements OnClickListener {
             @Override
             public void onEmotionSelected(int type, String content, Bundle data) {
                 String emotion = content;
-                if (!Utils.isEmpty(emotion)) {
+                if (!CommonUtil.isEmpty(emotion)) {
                     if (type == EmotionPlugin.TYPE_TEXT) {
                         if (!mEtInputMsg.isFocused()) {
                             mEtInputMsg.requestFocus();

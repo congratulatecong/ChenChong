@@ -15,6 +15,7 @@ import android.view.ViewConfiguration;
 import com.cong.chenchong.R;
 import com.cong.chenchong.constant.NetworkType;
 
+@SuppressWarnings({"unused", "SpellCheckingInspection"})
 public final class ContextUtils {
 
 	public static void showAlertDialog(Context context, String message) {
@@ -136,8 +137,7 @@ public final class ContextUtils {
         Resources resources = context.getResources();
         int identifierId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
         // 获取NavigationBar的高度
-        int navigationBarHeight = resources.getDimensionPixelSize(identifierId);
-        return navigationBarHeight;
+        return resources.getDimensionPixelSize(identifierId);
     }
 
     @SuppressLint("NewApi")
@@ -146,10 +146,7 @@ public final class ContextUtils {
         boolean hasMenuKey = ViewConfiguration.get(context).hasPermanentMenuKey();
         boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
         boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
-        if (!hasMenuKey && !hasBackKey && !hasHomeKey) {
-            return true;
-        }
-        return false;
+        return !hasMenuKey && !hasBackKey && !hasHomeKey;
     }
 
 }

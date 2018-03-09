@@ -3,7 +3,7 @@ package com.cong.chenchong.util;
 
 import java.util.List;
 
-public final class Utils {
+public final class CommonUtil {
 
     /**
      * List判空
@@ -12,7 +12,7 @@ public final class Utils {
      * @return
      */
     public static <T> boolean isListEmpty(List<T> list) {
-        return list.isEmpty() ? true : (list == null ? true : false);
+        return list == null || list.isEmpty();
     }
 
     /**

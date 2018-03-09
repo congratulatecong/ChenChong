@@ -1,12 +1,6 @@
 
 package com.cong.chenchong.adapter;
 
-import java.util.List;
-
-import com.cong.chenchong.R;
-import com.cong.chenchong.bean.Course;
-import com.cong.chenchong.util.Utils;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.cong.chenchong.R;
+import com.cong.chenchong.bean.Course;
+import com.cong.chenchong.util.CommonUtil;
+
+import java.util.List;
 
 public class CourseListViewAdapter extends BaseAdapter {
 
@@ -32,17 +32,17 @@ public class CourseListViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return Utils.isListEmpty(mCourseListData) ? 0 : mCourseListData.size();
+        return CommonUtil.isListEmpty(mCourseListData) ? 0 : mCourseListData.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return Utils.isListEmpty(mCourseListData) ? null : mCourseListData.get(position);
+        return CommonUtil.isListEmpty(mCourseListData) ? null : mCourseListData.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return Utils.isListEmpty(mCourseListData) ? 0 : position;
+        return CommonUtil.isListEmpty(mCourseListData) ? 0 : position;
     }
 
     @Override

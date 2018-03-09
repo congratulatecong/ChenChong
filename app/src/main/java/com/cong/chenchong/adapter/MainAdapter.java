@@ -1,7 +1,5 @@
 package com.cong.chenchong.adapter;
 
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +9,9 @@ import android.widget.TextView;
 
 import com.cong.chenchong.R;
 import com.cong.chenchong.bean.AndroidKernel;
-import com.cong.chenchong.util.Utils;
+import com.cong.chenchong.util.CommonUtil;
+
+import java.util.List;
 
 public class MainAdapter extends BaseAdapter {
 	private Context mContext;
@@ -25,17 +25,17 @@ public class MainAdapter extends BaseAdapter {
 
 	@Override
     public int getCount() {
-		return Utils.isListEmpty(mAndroidKernelList) ? 0 : mAndroidKernelList.size();
+		return CommonUtil.isListEmpty(mAndroidKernelList) ? 0 : mAndroidKernelList.size();
 	}
 
 	@Override
     public AndroidKernel getItem(int position) {
-		return Utils.isListEmpty(mAndroidKernelList) ? null : mAndroidKernelList.get(position);
+		return CommonUtil.isListEmpty(mAndroidKernelList) ? null : mAndroidKernelList.get(position);
 	}
 
 	@Override
     public long getItemId(int position) {
-		return Utils.isListEmpty(mAndroidKernelList) ? 0 : position;
+		return CommonUtil.isListEmpty(mAndroidKernelList) ? 0 : position;
 	}
 
 	@Override
