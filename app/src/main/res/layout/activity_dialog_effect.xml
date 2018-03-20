@@ -5,7 +5,7 @@
     android:background="#e74c3c"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_navigation_bar"/>
+    <include layout="@layout/layout_toolbar"/>
 
     <TextView
         android:id="@+id/title"

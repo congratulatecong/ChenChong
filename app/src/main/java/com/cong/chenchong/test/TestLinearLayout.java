@@ -23,11 +23,11 @@ public class TestLinearLayout extends LinearLayout {
     public TestLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         // TODO Auto-generated constructor stub
-        // LayoutInflater.from(context).inflate(R.layout.layout_navigation_bar,
+        // LayoutInflater.from(context).inflate(R.layout.layout_toolbar,
         // this);
-        // LayoutInflater.from(context).inflate(R.layout.layout_navigation_bar,
+        // LayoutInflater.from(context).inflate(R.layout.layout_toolbar,
         // null);
-        // addView(LayoutInflater.from(context).inflate(R.layout.layout_navigation_bar,
+        // addView(LayoutInflater.from(context).inflate(R.layout.layout_toolbar,
         // null));
         // mImageView = (ImageView) findViewById(R.id.iv_test);
 

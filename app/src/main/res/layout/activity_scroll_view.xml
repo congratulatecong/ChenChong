@@ -6,7 +6,7 @@
     android:background="@color/main_bg"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_navigation_bar"/>
+    <include layout="@layout/layout_toolbar"/>
 
     <TextView
         android:id="@+id/txt_rebound_scroll_view"

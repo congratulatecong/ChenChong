@@ -65,7 +65,7 @@ class PieProgress extends View {
 
 		Resources r = context.getResources();
 		float scale = r.getDisplayMetrics().density;
-		mPadding = scale * PADDING + r.getDimension(R.dimen.actionbar_vertival_padding);
+		mPadding = scale * PADDING + r.getDimension(R.dimen.actionbar_vertical_padding);
 		mPaintForeground.setColor(mColorForeground);
 		mPaintForeground.setAntiAlias(true);
 		mPaintBackground.setColor(mColorBackground);
