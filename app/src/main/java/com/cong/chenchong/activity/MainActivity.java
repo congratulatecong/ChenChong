@@ -99,8 +99,6 @@ public class MainActivity extends SlidingActivity implements OnItemClickListener
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(null);
-        toolbar.setTitle(R.string.main_title);
 
         layoutExitTips = (LinearLayout) findViewById(R.id.layout_exit_tips);
         tvExitTips = (TextView) findViewById(R.id.tv_exit_tips);

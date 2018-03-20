@@ -32,6 +32,7 @@
                 android:background="@color/white"
                 android:gravity="center_horizontal"
                 android:paddingTop="30dip"
+                android:letterSpacing="0.4"
                 android:text="下拉刷新"
                 android:textSize="18sp"/>
         </LinearLayout>
